@@ -2,7 +2,7 @@
 <CAEXFile SchemaVersion="3.0" FileName="C:\Users\cw37479\Documents\git\Promotion\Publikationen\2023-05-30 Modelica Conference\Beispiel\data\Test.aml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
   <AdditionalInformation DocumentVersions="Recommendations" />
   <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
-  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.1.7.0" LastWritingDateTime="2023-06-02T19:19:04.6374553+02:00" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="6.1.7.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" />
+  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.1.7.0" LastWritingDateTime="2023-06-02T20:05:07.4283526+02:00" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="6.1.7.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" />
   <InterfaceClassLib Name="CCLinkICL">
     <Description>AutomationML BPR CC-Link Interface Class Library</Description>
     <Version>1.0.0</Version>
@@ -715,7 +715,7 @@ referencing IEC 61131-10 documents</Description>
   </RoleClassLib>
   <RoleClassLib Name="SecurityRoleClassLib">
     <Version>0</Version>
-    <RoleClass Name="AbstractCertificate" RefBaseClassPath="">
+    <RoleClass Name="AbstractCertificate">
       <Attribute Name="Serial" AttributeDataType="xs:string" RefAttributeType="SecurityAttributesLib/Serial" />
       <Attribute Name="Subject" AttributeDataType="xs:string" RefAttributeType="SecurityAttributesLib/Subject" />
       <Attribute Name="LifetimeStart" AttributeDataType="xs:dateTime" RefAttributeType="SecurityAttributesLib/LifetimeStart" />

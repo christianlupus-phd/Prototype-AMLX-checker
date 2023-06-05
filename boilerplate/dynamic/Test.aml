@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<CAEXFile SchemaVersion="3.0" FileName="C:\Users\cw37479\Documents\git\Promotion\Publikationen\2023-05-30 Modelica Conference\Beispiel\data\Test.aml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
+<CAEXFile FileName="C:\Users\cw37479\Documents\git\Promotion\Publikationen\2023-05-30 Modelica Conference\Beispiel\Test.aml" SchemaVersion="3.0" xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
   <AdditionalInformation DocumentVersions="Recommendations" />
   <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
-  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.1.7.0" LastWritingDateTime="2023-06-02T20:05:07.4283526+02:00" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="6.1.7.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" />
+  <SourceDocumentInformation LastWritingDateTime="2023-06-05T13:46:48.417847+02:00" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginName="AutomationML Editor" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="6.1.7.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginVersion="6.1.7.0" />
   <InterfaceClassLib Name="CCLinkICL">
     <Description>AutomationML BPR CC-Link Interface Class Library</Description>
     <Version>1.0.0</Version>
@@ -30,7 +30,7 @@
     </InterfaceClass>
     <InterfaceClass Name="DeviceDescriptionReference" RefBaseClassPath="AutomationMLBPRInterfaceClassLib/ExternalDataReference">
       <Description>The interface class “DeviceDescriptionReference” is an abstract basic interface class and the base class for standard or user defined interface classes referencing a technology based device description file.</Description>
-      <Attribute Name="Version" AttributeDataType="xs:string" />
+      <Attribute AttributeDataType="xs:string" Name="Version" />
     </InterfaceClass>
     <InterfaceClass Name="MechanicInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
       <Description>A “MechanicInterface” represents a hardware provision to mechanically fasten or join two or more objects together.</Description>
@@ -46,8 +46,8 @@
     </InterfaceClass>
     <InterfaceClass Name="PneumaticConnector" RefBaseClassPath="AutomationMLComponentBaseICL/PneumaticInterface">
       <Description>A “PneumaticConnector” is a PneumaticInterface that represents a pneumatic connector standardized by [ISO 18582-2].</Description>
-      <Attribute Name="pneumaticPort" AttributeDataType="xs:string" />
-      <Attribute Name="connectorType" AttributeDataType="xs:string" />
+      <Attribute AttributeDataType="xs:string" Name="pneumaticPort" />
+      <Attribute AttributeDataType="xs:string" Name="connectorType" />
     </InterfaceClass>
     <InterfaceClass Name="CondensateDrainConnector" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
       <Description>A “CondendateDrainConnector” is an interface to desccribe a connector for the condensate drain connection of pneumatic automation component. It is standardized by [ISO18582-2].</Description>
@@ -67,8 +67,8 @@
     <Version>1.1.0</Version>
     <InterfaceClass Name="FMIReference" RefBaseClassPath="AutomationMLBPRInterfaceClassLib/ExternalDataReference" />
     <InterfaceClass Name="FMIVariableInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector">
-      <Attribute Name="Name" AttributeDataType="xs:string" />
-      <Attribute Name="Causality" AttributeDataType="xs:string" />
+      <Attribute AttributeDataType="xs:string" Name="Name" />
+      <Attribute AttributeDataType="xs:string" Name="Causality" />
     </InterfaceClass>
   </InterfaceClassLib>
   <InterfaceClassLib Name="AutomationMLLogicInterfaceClassLib">
@@ -81,10 +81,10 @@ referencing AML logic XML documents.</Description>
     <InterfaceClass Name="InterlockingLogicModelInterface" RefBaseClassPath="AutomationMLLogicInterfaceClassLib/LogicModelInterface" />
     <InterfaceClass Name="LogicModelElementInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector" />
     <InterfaceClass Name="VariableInterface" RefBaseClassPath="AutomationMLLogicInterfaceClassLib/LogicModelElementInterface">
-      <Attribute Name="Direction" AttributeDataType="xs:string" />
+      <Attribute AttributeDataType="xs:string" Name="Direction" />
     </InterfaceClass>
     <InterfaceClass Name="InterlockingVariableInterface" RefBaseClassPath="AutomationMLLogicInterfaceClassLib/VariableInterface">
-      <Attribute Name="SafeConditionEquals" AttributeDataType="xs:boolean" />
+      <Attribute AttributeDataType="xs:boolean" Name="SafeConditionEquals" />
     </InterfaceClass>
   </InterfaceClassLib>
   <InterfaceClassLib Name="AutomationMLPLCopenXMLInterfaceClassLib">
@@ -94,10 +94,10 @@ referencing IEC 61131-10 documents</Description>
     <InterfaceClass Name="VariableInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/PLCopenXMLInterface" />
   </InterfaceClassLib>
   <InterfaceClassLib Name="AutomationMLBPRInterfaceClassLib">
-    <Description></Description>
+    <Description />
     <Version>1.0.1</Version>
-    <InterfaceClass Name="ExternalDataReference" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector" ID="{320f7f3a-6df8-4ccd-af35-a4367b37eb7a}">
-      <Attribute Name="MIMEType" AttributeDataType="xs:string" />
+    <InterfaceClass ID="{320f7f3a-6df8-4ccd-af35-a4367b37eb7a}" Name="ExternalDataReference" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector">
+      <Attribute AttributeDataType="xs:string" Name="MIMEType" />
     </InterfaceClass>
   </InterfaceClassLib>
   <InterfaceClassLib Name="AutomationMLInterfaceClassLib">
@@ -105,16 +105,16 @@ referencing IEC 61131-10 documents</Description>
     <Version>2.2.2</Version>
     <InterfaceClass Name="AutomationMLBaseInterface">
       <InterfaceClass Name="Order" RefBaseClassPath="AutomationMLBaseInterface">
-        <Attribute Name="Direction" AttributeDataType="xs:string" />
+        <Attribute AttributeDataType="xs:string" Name="Direction" />
       </InterfaceClass>
       <InterfaceClass Name="PortConnector" RefBaseClassPath="AutomationMLBaseInterface" />
       <InterfaceClass Name="InterlockingConnector" RefBaseClassPath="AutomationMLBaseInterface" />
       <InterfaceClass Name="PPRConnector" RefBaseClassPath="AutomationMLBaseInterface" />
       <InterfaceClass Name="ExternalDataConnector" RefBaseClassPath="AutomationMLBaseInterface">
-        <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
+        <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
         <InterfaceClass Name="COLLADAInterface" RefBaseClassPath="ExternalDataConnector">
-          <Attribute Name="refType" AttributeDataType="xs:string" />
-          <Attribute Name="target" AttributeDataType="xs:token" />
+          <Attribute AttributeDataType="xs:string" Name="refType" />
+          <Attribute AttributeDataType="xs:token" Name="target" />
         </InterfaceClass>
         <InterfaceClass Name="PLCopenXMLInterface" RefBaseClassPath="ExternalDataConnector">
           <InterfaceClass Name="LogicInterface" RefBaseClassPath="PLCopenXMLInterface">
@@ -126,7 +126,7 @@ referencing IEC 61131-10 documents</Description>
           <InterfaceClass Name="LogicElementInterface" RefBaseClassPath="PLCopenXMLInterface" />
           <InterfaceClass Name="VariableInterface" RefBaseClassPath="PLCopenXMLInterface">
             <InterfaceClass Name="InterlockingVariableInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/PLCopenXMLInterface/VariableInterface">
-              <Attribute Name="SafeConditionEquals" AttributeDataType="xs:boolean">
+              <Attribute AttributeDataType="xs:boolean" Name="SafeConditionEquals">
                 <DefaultValue>true</DefaultValue>
               </Attribute>
             </InterfaceClass>
@@ -144,7 +144,7 @@ referencing IEC 61131-10 documents</Description>
     <InterfaceClass Name="IssuerCertificate" />
     <InterfaceClass Name="IssuedCertificate" />
     <InterfaceClass Name="LinkedCertificateFile" RefBaseClassPath="AutomationMLBPRInterfaceClassLib/ExternalDataReference">
-      <Attribute Name="MIMEType" AttributeDataType="xs:string">
+      <Attribute AttributeDataType="xs:string" Name="MIMEType">
         <Value>application/x-pem-file</Value>
       </Attribute>
     </InterfaceClass>
@@ -154,33 +154,33 @@ referencing IEC 61131-10 documents</Description>
     <Version>1.0.0</Version>
     <RoleClass Name="CSP+" RefBaseClassPath="AutomationMLComponentBaseRCL/AdditionalDeviceDescription">
       <Description>The role class “CSP+” is used to describe a CSP+ device description file in AutomationML.</Description>
-      <ExternalInterface Name="CSP+Reference" ID="08b14ab7-2f6a-4614-9863-532d6d7244b8" RefBaseClassPath="CCLinkICL/CSP+Reference">
+      <ExternalInterface ID="08b14ab7-2f6a-4614-9863-532d6d7244b8" Name="CSP+Reference" RefBaseClassPath="CCLinkICL/CSP+Reference">
         <Description>The interface class “CSP+Reference” shall be used in order to reference CSP+ device description files in AutomationML.</Description>
-        <Attribute Name="refURI" AttributeDataType="xs:anyURI">
+        <Attribute AttributeDataType="xs:anyURI" Name="refURI">
           <Description>URI of the corresponding device description file.</Description>
         </Attribute>
-        <Attribute Name="MIMEType" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="MIMEType">
           <Description>MIMEType of the file according to RFC2046.</Description>
           <DefaultValue>application/xml</DefaultValue>
           <Value />
         </Attribute>
-        <Attribute Name="Version" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="Version">
           <Description>The version of the actual device description file that is referenced here.</Description>
         </Attribute>
       </ExternalInterface>
     </RoleClass>
     <RoleClass Name="CSP+ForMachine" RefBaseClassPath="AutomationMLComponentBaseRCL/AdditionalDeviceDescription">
       <Description>The role class “CSP+ForMachine” is used to describe a CSP+ for Machine device description file in AutomationML.</Description>
-      <ExternalInterface Name="CSP+ForMachineReference" ID="9a008fb7-edb2-49ff-b883-534ddb0b851d" RefBaseClassPath="CCLinkICL/CSP+ForMachineReference">
+      <ExternalInterface ID="9a008fb7-edb2-49ff-b883-534ddb0b851d" Name="CSP+ForMachineReference" RefBaseClassPath="CCLinkICL/CSP+ForMachineReference">
         <Description>The interface class “CSP+ForMachineReference” shall be used in order to reference CSP+ for Machine device description files in AutomationML.</Description>
-        <Attribute Name="refURI" AttributeDataType="xs:anyURI">
+        <Attribute AttributeDataType="xs:anyURI" Name="refURI">
           <Description>URI of the corresponding device description file.</Description>
         </Attribute>
-        <Attribute Name="MIMEType" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="MIMEType">
           <Description>MIMEType of the file according to RFC2046.</Description>
           <DefaultValue>application/xml</DefaultValue>
         </Attribute>
-        <Attribute Name="Version" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="Version">
           <Description>The version of the actual device description file that is referenced here.</Description>
         </Attribute>
       </ExternalInterface>
@@ -205,16 +205,16 @@ referencing IEC 61131-10 documents</Description>
     <Version>1.1.0</Version>
     <RoleClass Name="AdditionalDeviceDescription" RefBaseClassPath="AutomationMLBPRRoleClassLib/ExternalData">
       <Description>This is the base class for standard or user defined role classes referencing technology based device descriptions.</Description>
-      <Attribute Name="SpecVersion" AttributeDataType="xs:string">
+      <Attribute AttributeDataType="xs:string" Name="SpecVersion">
         <Description>The version of the Specification or Schema of the device description file.</Description>
       </Attribute>
-      <Attribute Name="DocLang" AttributeDataType="xs:string">
+      <Attribute AttributeDataType="xs:string" Name="DocLang">
         <Description>Language of the referenced description file.</Description>
       </Attribute>
-      <ExternalInterface Name="DeviceDescriptionReference" ID="77a3d04b-702e-4852-8094-cd37cd155fcd" RefBaseClassPath="AutomationMLComponentBaseICL/DeviceDescriptionReference">
-        <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
-        <Attribute Name="MIMEType" AttributeDataType="xs:string" />
-        <Attribute Name="Version" AttributeDataType="xs:string" />
+      <ExternalInterface ID="77a3d04b-702e-4852-8094-cd37cd155fcd" Name="DeviceDescriptionReference" RefBaseClassPath="AutomationMLComponentBaseICL/DeviceDescriptionReference">
+        <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
+        <Attribute AttributeDataType="xs:string" Name="MIMEType" />
+        <Attribute AttributeDataType="xs:string" Name="Version" />
       </ExternalInterface>
     </RoleClass>
     <RoleClass Name="Connector" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
@@ -222,9 +222,9 @@ referencing IEC 61131-10 documents</Description>
     </RoleClass>
     <RoleClass Name="Documentation" RefBaseClassPath="AutomationMLBPRRoleClassLib/ExternalData">
       <Description>The role class “Documentation” shall be used to specify all AutomationML objects referencing documentation related information of a compponent.</Description>
-      <ExternalInterface Name="ExternalDataReference" ID="7b24341d-fd33-4fc3-9ae9-3fb9673d11ea" RefBaseClassPath="AutomationMLBPRInterfaceClassLib/ExternalDataReference">
-        <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
-        <Attribute Name="MIMEType" AttributeDataType="xs:string" />
+      <ExternalInterface ID="7b24341d-fd33-4fc3-9ae9-3fb9673d11ea" Name="ExternalDataReference" RefBaseClassPath="AutomationMLBPRInterfaceClassLib/ExternalDataReference">
+        <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
+        <Attribute AttributeDataType="xs:string" Name="MIMEType" />
       </ExternalInterface>
     </RoleClass>
     <RoleClass Name="GeometryModel" RefBaseClassPath="AutomationMLComponentBaseRCL/Model">
@@ -232,9 +232,9 @@ referencing IEC 61131-10 documents</Description>
     </RoleClass>
     <RoleClass Name="GraphicRepresentation" RefBaseClassPath="AutomationMLBPRRoleClassLib/ExternalData">
       <Description>The role class “GraphicRepresentation” is a basic role class and the base class for standard or user defined role classes referencing graphic representation of components.</Description>
-      <ExternalInterface Name="GraphicRepresentationReference" ID="fdfc49bd-0266-4f31-a0b2-cf365f16fbeb" RefBaseClassPath="AutomationMLComponentBaseICL/GraphicRepresentationReference">
-        <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
-        <Attribute Name="MIMEType" AttributeDataType="xs:string" />
+      <ExternalInterface ID="fdfc49bd-0266-4f31-a0b2-cf365f16fbeb" Name="GraphicRepresentationReference" RefBaseClassPath="AutomationMLComponentBaseICL/GraphicRepresentationReference">
+        <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
+        <Attribute AttributeDataType="xs:string" Name="MIMEType" />
       </ExternalInterface>
     </RoleClass>
     <RoleClass Name="Icon" RefBaseClassPath="AutomationMLComponentBaseRCL/GraphicRepresentation">
@@ -244,9 +244,9 @@ referencing IEC 61131-10 documents</Description>
       <Description>The role class “LogicModel” is a basic abstract role class and the base class for standard or user defined role classes referencing component logic models.</Description>
       <RoleClass Name="PLCopenXMLLogic" RefBaseClassPath="AutomationMLLogicRoleClassLib/LogicModelObject">
         <Description>The role class “PLCopenXMLLogic” shall be used for referencing a PLCopenXMLLogic model.</Description>
-        <ExternalInterface Name="VariableInterface" ID="7306f95b-7e2e-4f3a-af1d-12f4e1d1e941" RefBaseClassPath="AutomationMLPLCopenXMLInterfaceClassLib/VariableInterface" />
-        <ExternalInterface Name="LogicInterface" ID="ca8c37da-96d9-44a8-9c8c-68c5f6b8b420" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/PLCopenXMLInterface/LogicInterface">
-          <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
+        <ExternalInterface ID="7306f95b-7e2e-4f3a-af1d-12f4e1d1e941" Name="VariableInterface" RefBaseClassPath="AutomationMLPLCopenXMLInterfaceClassLib/VariableInterface" />
+        <ExternalInterface ID="ca8c37da-96d9-44a8-9c8c-68c5f6b8b420" Name="LogicInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/PLCopenXMLInterface/LogicInterface">
+          <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
         </ExternalInterface>
       </RoleClass>
       <RoleClass Name="AMLLogic" RefBaseClassPath="AutomationMLLogicRoleClassLib/LogicModelObject">
@@ -254,17 +254,17 @@ referencing IEC 61131-10 documents</Description>
       </RoleClass>
       <RoleClass Name="FMILogic" RefBaseClassPath="AutomationMLFMILogicRoleClassLib/FMILogicObject">
         <Description>This RoleClass “FMILogic” describes an instance of a co-simulation Functional Mockup Unit according to the FMI standard, which is an open standard and is adopted by a variety of simulation tools.</Description>
-        <Attribute Name="Name" AttributeDataType="xs:string" />
-        <Attribute Name="Description" AttributeDataType="xs:string" />
-        <Attribute Name="FMIVersion" AttributeDataType="xs:string" />
-        <ExternalInterface Name="FMIReference" ID="fb47e6a7-2e9f-4e2e-bfa3-0288da9973c7" RefBaseClassPath="AutomationMLFMIInterfaceClassLib/FMIReference">
-          <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
-          <Attribute Name="MIMEType" AttributeDataType="xs:string" />
+        <Attribute AttributeDataType="xs:string" Name="Name" />
+        <Attribute AttributeDataType="xs:string" Name="Description" />
+        <Attribute AttributeDataType="xs:string" Name="FMIVersion" />
+        <ExternalInterface ID="fb47e6a7-2e9f-4e2e-bfa3-0288da9973c7" Name="FMIReference" RefBaseClassPath="AutomationMLFMIInterfaceClassLib/FMIReference">
+          <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
+          <Attribute AttributeDataType="xs:string" Name="MIMEType" />
         </ExternalInterface>
-        <ExternalInterface Name="FMIVariableInterface" ID="41d8e7a0-4cfc-4b4f-baab-ef32e2d4072b" RefBaseClassPath="AutomationMLFMIInterfaceClassLib/FMIVariableInterface">
-          <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
-          <Attribute Name="Name" AttributeDataType="xs:string" />
-          <Attribute Name="Causality" AttributeDataType="xs:string" />
+        <ExternalInterface ID="41d8e7a0-4cfc-4b4f-baab-ef32e2d4072b" Name="FMIVariableInterface" RefBaseClassPath="AutomationMLFMIInterfaceClassLib/FMIVariableInterface">
+          <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
+          <Attribute AttributeDataType="xs:string" Name="Name" />
+          <Attribute AttributeDataType="xs:string" Name="Causality" />
         </ExternalInterface>
       </RoleClass>
     </RoleClass>
@@ -290,233 +290,233 @@ referencing IEC 61131-10 documents</Description>
         <Description>Identification data of the automation component type or instance model.</Description>
         <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACC011#001" />
         <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABC269#005" />
-        <Attribute Name="Manufacturer" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="Manufacturer">
           <Description>Name of the Manufacturer (person, company or organisation)</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE102#001" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA565#006" />
         </Attribute>
-        <Attribute Name="ManufacturerURI" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="ManufacturerURI">
           <Description>Address of the product manufacturer on the world wide web (URL) </Description>
         </Attribute>
-        <Attribute Name="DeviceClass" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="DeviceClass">
           <Description>Product family name of the manufacturer, characterization may be based on its usage, operation principle, and its fabricated form</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE104#001" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA566#005" />
         </Attribute>
-        <Attribute Name="Model" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="Model">
           <Description>Product name or model code of the manufacturer</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE105#001" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA567#006" />
         </Attribute>
-        <Attribute Name="ProductCode" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="ProductCode">
           <Description>Unique product identifier given by the manufacturer</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE103#001" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA300#005" />
         </Attribute>
-        <Attribute Name="OrderCode" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="OrderCode">
           <Description>Unique combination of numbers and letters used to order the device</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAH549#002" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA950#006" />
         </Attribute>
-        <Attribute Name="HardwareRevision" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="HardwareRevision">
           <Description>Version of the hardware supplied with the component</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA926#005" />
         </Attribute>
-        <Attribute Name="SoftwareRevision" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="SoftwareRevision">
           <Description>Version of the firmware supplied with the component</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA302#004" />
         </Attribute>
-        <Attribute Name="SerialNumber" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="SerialNumber">
           <Description>Unique combination of numbers and letters to identify a manufactured component sample</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA951#006" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#ADA029#001" />
         </Attribute>
-        <Attribute Name="FabricationNumber" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="FabricationNumber">
           <Description>Alphanumeric character sequence to trace the date, time and circumstances of fabrication</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABB062#005" />
         </Attribute>
-        <Attribute Name="ProductInstanceURI" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="ProductInstanceURI">
           <Description>Unique global identification of the product type or sample (assetID) using an universal resource identifier, such as an online URL to the product data.</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABN591#001" />
         </Attribute>
       </Attribute>
       <Attribute Name="GeneralTechnicalData">
         <Description>Classification data of the component.</Description>
-        <Attribute Name="AmbientTemperature" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="AmbientTemperature">
           <Description>Operating temperature limits of the air surrounding the complete component.</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE440#001" />
-          <Attribute Name="TemperatureMin" AttributeDataType="xs:int">
+          <Attribute AttributeDataType="xs:int" Name="TemperatureMin">
             <Description>Lowest ambient temperature for which the component operates within its specified limits.</Description>
             <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAH008#002" />
             <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA621#007" />
           </Attribute>
-          <Attribute Name="TemperatureMax" AttributeDataType="xs:int">
+          <Attribute AttributeDataType="xs:int" Name="TemperatureMax">
             <Description>Highest ambient temperature for which the component operates within its specified limits.</Description>
             <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAH007#002" />
             <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA623#007" />
             <RefSemantic CorrespondingAttributePath="IRDI:" />
           </Attribute>
         </Attribute>
-        <Attribute Name="IPCode" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="IPCode">
           <Description>Degree of protection (IP code) of the component provided by enclosure, numerical classification in accordance with IEC 60529 preceded by the symbol IP.</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAH011#002" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE248#001" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA558#006" />
         </Attribute>
-        <Attribute Name="Material" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="Material">
           <Description>Basic material of the housing of the component.</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAE351#006" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE260#001" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA158#004" />
         </Attribute>
-        <Attribute Name="Weight" AttributeDataType="xs:float">
+        <Attribute AttributeDataType="xs:float" Name="Weight">
           <Description>Net weight: Value of the mass of the component with all fixed parts without packaging and accessories.</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#ACB032#002" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE808#001" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA553#006" />
         </Attribute>
-        <Attribute Name="Height" AttributeDataType="xs:integer" Unit="mm">
+        <Attribute AttributeDataType="xs:integer" Name="Height" Unit="mm">
           <Description>Height of the body, vertical distance between the top and bottom of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAE020#002" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE801#001" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA574#006" />
         </Attribute>
-        <Attribute Name="Width" AttributeDataType="xs:integer">
+        <Attribute AttributeDataType="xs:integer" Name="Width">
           <Description>Width or breadth of the body, horizontal distance between the left-hand and right-hand extremes of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAE021#002" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE802#001" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA573#006" />
         </Attribute>
-        <Attribute Name="Length" AttributeDataType="xs:integer">
+        <Attribute AttributeDataType="xs:integer" Name="Length">
           <Description>Length of the body, horizontal distance between the front and back of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.</Description>
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAE019#002" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE803#001" />
           <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA640#006" />
         </Attribute>
       </Attribute>
-      <Attribute Name="CommercialData" AttributeDataType="">
+      <Attribute AttributeDataType="" Name="CommercialData">
         <Description>Commercial data related to the component.</Description>
         <Attribute Name="PackagingAndTransportation">
           <Description>Properties characterizing the packing and transportation (shipping) of a product.</Description>
-          <Attribute Name="GTIN" AttributeDataType="xs:string">
+          <Attribute AttributeDataType="xs:string" Name="GTIN">
             <Description>Global Trade Item Number (GTIN). International unique and universal item number for products and services used by trade and industry (formerly EAN)</Description>
             <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE101#001" />
             <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA587#005" />
           </Attribute>
-          <Attribute Name="CustomsTariffNumber" AttributeDataType="xs:integer">
+          <Attribute AttributeDataType="xs:integer" Name="CustomsTariffNumber">
             <Description>Classification of a product according to trade regulations. Number assigned to each type of product sold internationally.</Description>
             <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE109#001" />
             <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABI442#001" />
           </Attribute>
-          <Attribute Name="CountryOfOrigin" AttributeDataType="xs:string" Unit="code">
+          <Attribute AttributeDataType="xs:string" Name="CountryOfOrigin" Unit="code">
             <Description>Alphabetic 2-character code for the identification of the country in which the good has been produced or manufactured according to criteria laid down for the application of custom tariff or quantitative restrictions, or any measure related to trade. The provided value list for the alphabetic 2-character code is based on ISO 3166-1, which is updated under https://www.iso.org/iso-3166-country-codes.html</Description>
             <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#ADA034#001" />
             <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABJ603#001" />
           </Attribute>
         </Attribute>
-        <Attribute Name="ProductDetails" AttributeDataType="xs:string">
-          <Attribute Name="DescriptionShort" AttributeDataType="xs:string" />
-          <Attribute Name="DescriptionLong" AttributeDataType="xs:string" />
-          <Attribute Name="InternationalPID" AttributeDataType="xs:string" />
-          <Attribute Name="ManufacturerPID" AttributeDataType="xs:string" />
-          <Attribute Name="SpecialTreatmentClass" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="ProductDetails">
+          <Attribute AttributeDataType="xs:string" Name="DescriptionShort" />
+          <Attribute AttributeDataType="xs:string" Name="DescriptionLong" />
+          <Attribute AttributeDataType="xs:string" Name="InternationalPID" />
+          <Attribute AttributeDataType="xs:string" Name="ManufacturerPID" />
+          <Attribute AttributeDataType="xs:string" Name="SpecialTreatmentClass">
             <RefSemantic CorrespondingAttributePath="ListType" />
           </Attribute>
-          <Attribute Name="Keyword" AttributeDataType="xs:string">
+          <Attribute AttributeDataType="xs:string" Name="Keyword">
             <RefSemantic CorrespondingAttributePath="ListType" />
           </Attribute>
-          <Attribute Name="Remarks" AttributeDataType="xs:string" />
+          <Attribute AttributeDataType="xs:string" Name="Remarks" />
         </Attribute>
         <Attribute Name="ProductOrderDetails">
-          <Attribute Name="OrderUnit" AttributeDataType="xs:string" />
-          <Attribute Name="ContentUnit" AttributeDataType="xs:string" />
-          <Attribute Name="PriceQuantity" AttributeDataType="xs:string" />
-          <Attribute Name="QuantityMin" AttributeDataType="xs:float" />
-          <Attribute Name="QuantityInterval" AttributeDataType="xs:float" />
-          <Attribute Name="QuantityMax" AttributeDataType="xs:string" />
-          <Attribute Name="PackingUnits" AttributeDataType="xs:string" />
-          <Attribute Name="PackingSize" AttributeDataType="xs:string" />
+          <Attribute AttributeDataType="xs:string" Name="OrderUnit" />
+          <Attribute AttributeDataType="xs:string" Name="ContentUnit" />
+          <Attribute AttributeDataType="xs:string" Name="PriceQuantity" />
+          <Attribute AttributeDataType="xs:float" Name="QuantityMin" />
+          <Attribute AttributeDataType="xs:float" Name="QuantityInterval" />
+          <Attribute AttributeDataType="xs:string" Name="QuantityMax" />
+          <Attribute AttributeDataType="xs:string" Name="PackingUnits" />
+          <Attribute AttributeDataType="xs:string" Name="PackingSize" />
         </Attribute>
         <Attribute Name="ProductPriceDetails">
           <RefSemantic CorrespondingAttributePath="ListType" />
-          <Attribute Name="ValidStartDate" AttributeDataType="xs:date" />
-          <Attribute Name="VaildEndDate" AttributeDataType="xs:date" />
-          <Attribute Name="ProductPrice" AttributeDataType="xs:string">
-            <Attribute Name="PriceAmount" AttributeDataType="xs:string" />
-            <Attribute Name="PriceCurrency" AttributeDataType="xs:string" />
-            <Attribute Name="Tax" AttributeDataType="xs:string" />
-            <Attribute Name="PriceFactor" AttributeDataType="xs:string" />
-            <Attribute Name="LowerBound" AttributeDataType="xs:string" />
-            <Attribute Name="Territory" AttributeDataType="xs:string">
+          <Attribute AttributeDataType="xs:date" Name="ValidStartDate" />
+          <Attribute AttributeDataType="xs:date" Name="VaildEndDate" />
+          <Attribute AttributeDataType="xs:string" Name="ProductPrice">
+            <Attribute AttributeDataType="xs:string" Name="PriceAmount" />
+            <Attribute AttributeDataType="xs:string" Name="PriceCurrency" />
+            <Attribute AttributeDataType="xs:string" Name="Tax" />
+            <Attribute AttributeDataType="xs:string" Name="PriceFactor" />
+            <Attribute AttributeDataType="xs:string" Name="LowerBound" />
+            <Attribute AttributeDataType="xs:string" Name="Territory">
               <RefSemantic CorrespondingAttributePath="ListType" />
             </Attribute>
           </Attribute>
         </Attribute>
         <Attribute Name="ManufacturerDetails">
-          <Attribute Name="Name" AttributeDataType="xs:string" />
-          <Attribute Name="Address1" AttributeDataType="xs:string" />
-          <Attribute Name="Address2" AttributeDataType="xs:string" />
-          <Attribute Name="ZipCode" AttributeDataType="xs:string" />
-          <Attribute Name="City" AttributeDataType="xs:string" />
-          <Attribute Name="Country" AttributeDataType="xs:string" />
-          <Attribute Name="ContactMail" AttributeDataType="xs:string" />
-          <Attribute Name="ContactPhone" AttributeDataType="xs:string" />
-          <Attribute Name="Website" AttributeDataType="xs:string" />
+          <Attribute AttributeDataType="xs:string" Name="Name" />
+          <Attribute AttributeDataType="xs:string" Name="Address1" />
+          <Attribute AttributeDataType="xs:string" Name="Address2" />
+          <Attribute AttributeDataType="xs:string" Name="ZipCode" />
+          <Attribute AttributeDataType="xs:string" Name="City" />
+          <Attribute AttributeDataType="xs:string" Name="Country" />
+          <Attribute AttributeDataType="xs:string" Name="ContactMail" />
+          <Attribute AttributeDataType="xs:string" Name="ContactPhone" />
+          <Attribute AttributeDataType="xs:string" Name="Website" />
         </Attribute>
       </Attribute>
-      <Attribute Name="ParameterData" AttributeDataType="xs:string">
+      <Attribute AttributeDataType="xs:string" Name="ParameterData">
         <Description>Parameter data (configurable and read-only) of the component.</Description>
       </Attribute>
     </RoleClass>
     <RoleClass Name="AutomationComponentSemanticSystem" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
       <Description>The role class “AutomationComponentSemanticSystem” shall be used to define the semantic systems that are supported by the AutomationML Component. </Description>
-      <Attribute Name="ClassificationSystem" AttributeDataType="xs:string">
-        <Attribute Name="Name" AttributeDataType="xs:string" />
-        <Attribute Name="Version" AttributeDataType="xs:string" />
-        <Attribute Name="RefSemanticPrefix" AttributeDataType="xs:string" />
-        <Attribute Name="URL" AttributeDataType="xs:string" />
+      <Attribute AttributeDataType="xs:string" Name="ClassificationSystem">
+        <Attribute AttributeDataType="xs:string" Name="Name" />
+        <Attribute AttributeDataType="xs:string" Name="Version" />
+        <Attribute AttributeDataType="xs:string" Name="RefSemanticPrefix" />
+        <Attribute AttributeDataType="xs:string" Name="URL" />
       </Attribute>
-      <Attribute Name="IEC 61987 " AttributeDataType="xs:string">
-        <Attribute Name="Version" AttributeDataType="xs:string">
+      <Attribute AttributeDataType="xs:string" Name="IEC 61987 ">
+        <Attribute AttributeDataType="xs:string" Name="Version">
           <Value>V2.0014.0016</Value>
         </Attribute>
-        <Attribute Name="RefSemanticPrefix" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="RefSemanticPrefix">
           <Value>IRDI:0112/2///62683#</Value>
         </Attribute>
-        <Attribute Name="URL" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="URL">
           <Value>https://cdd.iec.ch/cdd/iec61987/iec61987.nsf/TreeFrameset?OpenFrameSet&amp;ongletactif=1</Value>
         </Attribute>
       </Attribute>
-      <Attribute Name="IEC 61360-4" AttributeDataType="xs:string">
-        <Attribute Name="Version" AttributeDataType="xs:string">
+      <Attribute AttributeDataType="xs:string" Name="IEC 61360-4">
+        <Attribute AttributeDataType="xs:string" Name="Version">
           <Value>V2.0014.0016</Value>
         </Attribute>
-        <Attribute Name="RefSemanticPrefix" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="RefSemanticPrefix">
           <Value>IRDI:0112/2///61360_4#</Value>
         </Attribute>
-        <Attribute Name="URL" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="URL">
           <Value>https://cdd.iec.ch/cdd/iec61360/iec61360.nsf/TreeFrameset?OpenFrameSet&amp;ongletactif=1</Value>
         </Attribute>
       </Attribute>
-      <Attribute Name="IEC 62683" AttributeDataType="xs:string">
-        <Attribute Name="Version" AttributeDataType="xs:string">
+      <Attribute AttributeDataType="xs:string" Name="IEC 62683">
+        <Attribute AttributeDataType="xs:string" Name="Version">
           <Value>V2.0014.0016</Value>
         </Attribute>
-        <Attribute Name="RefSemanticPrefix" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="RefSemanticPrefix">
           <Value>IRDI:0112/2///62683#</Value>
         </Attribute>
-        <Attribute Name="URL" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="URL">
           <Value>https://cdd.iec.ch/cdd/iec62683/iec62683.nsf/TreeFrameset?OpenFrameSet&amp;ongletactif=1</Value>
         </Attribute>
       </Attribute>
-      <Attribute Name="eClass" AttributeDataType="xs:string">
-        <Attribute Name="Version" AttributeDataType="xs:string">
+      <Attribute AttributeDataType="xs:string" Name="eClass">
+        <Attribute AttributeDataType="xs:string" Name="Version">
           <Value>11.0</Value>
         </Attribute>
-        <Attribute Name="RefSemanticPrefix" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="RefSemanticPrefix">
           <Value>IRDI:0173</Value>
         </Attribute>
-        <Attribute Name="URL" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="URL">
           <Value>https://www.eclasscontent.com</Value>
         </Attribute>
       </Attribute>
@@ -539,10 +539,10 @@ referencing IEC 61131-10 documents</Description>
     <RoleClass Name="SequenceElement" RefBaseClassPath="AutomationMLComponentStandardRCL/SequencingModel">
       <Description>The role class “SequenceElement” shall be used in order to specify all the interface related information of a sequence element.</Description>
     </RoleClass>
-    <RoleClass Name="SkillModel" RefBaseClassPath="AutomationMLComponentBaseRCL/Model" ChangeMode="create">
+    <RoleClass ChangeMode="create" Name="SkillModel" RefBaseClassPath="AutomationMLComponentBaseRCL/Model">
       <Description>The role class “SkillModel” shall be used to define or reference skill models of an automation Component.</Description>
     </RoleClass>
-    <RoleClass Name="SkillLogicModel" RefBaseClassPath="AutomationMLComponentBaseRCL/LogicModel" ChangeMode="change">
+    <RoleClass ChangeMode="change" Name="SkillLogicModel" RefBaseClassPath="AutomationMLComponentBaseRCL/LogicModel">
       <Description>The role class “SkillLogicModel” shall be used in order to specify a logic model integration as behaviour model of AutomationML Component.</Description>
     </RoleClass>
     <RoleClass Name="SkillConnector" RefBaseClassPath="AutomationMLComponentBaseRCL/Connector">
@@ -550,44 +550,44 @@ referencing IEC 61131-10 documents</Description>
     </RoleClass>
     <RoleClass Name="COLLADAKinematicModel" RefBaseClassPath="AutomationMLComponentBaseRCL/KinematicModel">
       <Description>The role class “COLLADAKinematicModel” shall be used in order to specify all the interface related information of a COLLADA kinematic model of an AutomationML Component or Composite Component.</Description>
-      <ExternalInterface Name="COLLADAInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/COLLADAInterface" ID="4515b789-fc7b-410d-8756-2ffe16255139">
-        <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
-        <Attribute Name="refType" AttributeDataType="xs:string" />
-        <Attribute Name="target" AttributeDataType="xs:token" />
+      <ExternalInterface ID="4515b789-fc7b-410d-8756-2ffe16255139" Name="COLLADAInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/COLLADAInterface">
+        <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
+        <Attribute AttributeDataType="xs:string" Name="refType" />
+        <Attribute AttributeDataType="xs:token" Name="target" />
       </ExternalInterface>
     </RoleClass>
     <RoleClass Name="COLLADAKinematicJoint" RefBaseClassPath="AutomationMLComponentStandardRCL/COLLADAKinematicModel">
       <Description>The role class “COLLADAKinematicJoint” shall be used in order to specify all joint information of a COLLADA kinematic model of the AutomationML Component.</Description>
-      <ExternalInterface Name="JointInterface" ID="d62522cb-76b9-49f2-9f1d-38aa7afa30ff" RefBaseClassPath="AutomationMLComponentBaseICL/JointInterface" />
+      <ExternalInterface ID="d62522cb-76b9-49f2-9f1d-38aa7afa30ff" Name="JointInterface" RefBaseClassPath="AutomationMLComponentBaseICL/JointInterface" />
     </RoleClass>
     <RoleClass Name="COLLADAKinematicAttachment" RefBaseClassPath="AutomationMLComponentStandardRCL/COLLADAKinematicModel">
       <Description>The role class “COLLADAKinematicAttachment” shall be used in order to specify all attachment information of a COLLADA kinematic model of the AutomationML Component.</Description>
-      <ExternalInterface Name="AttachmentInterface" ID="5a7555a1-1b49-4abe-9f64-23f33c81d41f" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/AttachmentInterface" />
+      <ExternalInterface ID="5a7555a1-1b49-4abe-9f64-23f33c81d41f" Name="AttachmentInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/AttachmentInterface" />
     </RoleClass>
     <RoleClass Name="COLLADAGeometryModel" RefBaseClassPath="AutomationMLComponentBaseRCL/GeometryModel">
       <Description>The role class “COLLADAGeometryModel” shall be used in order to specify all the interface related information of a COLLADA geometry model.</Description>
-      <ExternalInterface Name="COLLADAInterface" ID="d7d00603-9b83-4e1c-821f-ee2fb28a4aa1" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/COLLADAInterface">
-        <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
-        <Attribute Name="refType" AttributeDataType="xs:string" />
-        <Attribute Name="target" AttributeDataType="xs:token" />
+      <ExternalInterface ID="d7d00603-9b83-4e1c-821f-ee2fb28a4aa1" Name="COLLADAInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/COLLADAInterface">
+        <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
+        <Attribute AttributeDataType="xs:string" Name="refType" />
+        <Attribute AttributeDataType="xs:token" Name="target" />
       </ExternalInterface>
     </RoleClass>
     <RoleClass Name="COLLADAGeometryAttachment" RefBaseClassPath="AutomationMLComponentStandardRCL/COLLADAGeometryModel">
       <Description>The role class “COLLADAGeometryAttachment” shall be used in order to specify all attachment information of a COLLADA geometry model of the AutomationML Component.</Description>
-      <ExternalInterface Name="AttachmentInterface" ID="1913fd44-cb01-4c0d-9f8f-6fbfdea2755f" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/AttachmentInterface" />
+      <ExternalInterface ID="1913fd44-cb01-4c0d-9f8f-6fbfdea2755f" Name="AttachmentInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/AttachmentInterface" />
     </RoleClass>
     <RoleClass Name="JTGeometryModel" RefBaseClassPath="AutomationMLComponentBaseRCL/GeometryModel">
       <Description>The role class “JTGeometryModel” shall be used in order to specify all the interface related information of a JT geometry model.</Description>
-      <ExternalInterface Name="JTReference" ID="aedac47c-741d-4e2e-b8d7-4443ef055535" RefBaseClassPath="AutomationMLComponentBaseICL/JTReference">
-        <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
-        <Attribute Name="MIMEType" AttributeDataType="xs:string" />
+      <ExternalInterface ID="aedac47c-741d-4e2e-b8d7-4443ef055535" Name="JTReference" RefBaseClassPath="AutomationMLComponentBaseICL/JTReference">
+        <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
+        <Attribute AttributeDataType="xs:string" Name="MIMEType" />
       </ExternalInterface>
     </RoleClass>
     <RoleClass Name="2DGeometryModel" RefBaseClassPath="AutomationMLComponentBaseRCL/GeometryModel">
       <Description>The role class “2DGeometryModel” shall be used in order to specify all the interface related information of a 2D geometry model.</Description>
-      <ExternalInterface Name="2DReference" ID="8b7f8789-f132-4692-9871-1a10cf1df20f" RefBaseClassPath="AutomationMLComponentBaseICL/2DReference">
-        <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
-        <Attribute Name="MIMEType" AttributeDataType="xs:string" />
+      <ExternalInterface ID="8b7f8789-f132-4692-9871-1a10cf1df20f" Name="2DReference" RefBaseClassPath="AutomationMLComponentBaseICL/2DReference">
+        <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
+        <Attribute AttributeDataType="xs:string" Name="MIMEType" />
       </ExternalInterface>
     </RoleClass>
     <RoleClass Name="ComponentPicture" RefBaseClassPath="AutomationMLComponentBaseRCL/GraphicRepresentation">
@@ -613,52 +613,52 @@ referencing IEC 61131-10 documents</Description>
     </RoleClass>
     <RoleClass Name="MechanicConnector" RefBaseClassPath="AutomationMLComponentBaseRCL/Connector">
       <Description>The role class “MechanicConnector” shall be used to define the representation of a mechanical fastening interface of an automation component within its AutomationML Component representation.</Description>
-      <ExternalInterface Name="MechanicInterface" ID="f161edf3-c422-4cf7-9bf6-e4cba061b15c" RefBaseClassPath="AutomationMLComponentBaseICL/MechanicInterface" />
+      <ExternalInterface ID="f161edf3-c422-4cf7-9bf6-e4cba061b15c" Name="MechanicInterface" RefBaseClassPath="AutomationMLComponentBaseICL/MechanicInterface" />
     </RoleClass>
     <RoleClass Name="MultiConnector" RefBaseClassPath="AutomationMLComponentBaseRCL/Connector" />
     <RoleClass Name="LogicConnector" RefBaseClassPath="AutomationMLComponentBaseRCL/Connector">
       <Description>The role class “LogicConnector” shall be used in order to specify all the related information of an logic connector of an automation component within its AutomationML Component representation.</Description>
-      <ExternalInterface Name="SignalInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication/SignalInterface" ID="17bd2a73-0f1a-4d4b-9451-c9621f1047bf" />
+      <ExternalInterface ID="17bd2a73-0f1a-4d4b-9451-c9621f1047bf" Name="SignalInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication/SignalInterface" />
     </RoleClass>
     <RoleClass Name="ElectricConnector" RefBaseClassPath="AutomationMLComponentBaseRCL/Connector">
       <Description>The role class “ElectricConnector” shall be used in order to specify all the related information of an electric connector of an automation component within its AutomationML Component representation.</Description>
-      <ExternalInterface Name="ElectricInterface" ID="6d752fce-f141-4d8a-a8b5-0064ad19f707" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface" />
+      <ExternalInterface ID="6d752fce-f141-4d8a-a8b5-0064ad19f707" Name="ElectricInterface" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface" />
     </RoleClass>
     <RoleClass Name="FluidicConnector" RefBaseClassPath="AutomationMLComponentBaseRCL/Connector">
       <Description>The role class “FluidicConnector” is an abstract role class and the base class for standard or user defined role classes referencing fluidic connectors.</Description>
     </RoleClass>
     <RoleClass Name="LiquidicConnector" RefBaseClassPath="AutomationMLComponentStandardRCL/FluidicConnector">
       <Description>The role class “LiquidicConnector” shall be used in order to specify all the related information of a liquidic connector of an automation component within its AutomationML Component representation.</Description>
-      <ExternalInterface Name="LiquidicInterface" ID="5f170a3d-7d61-47e6-8a45-63e8b7448609" RefBaseClassPath="AutomationMLComponentBaseICL/LiquidicInterface" />
+      <ExternalInterface ID="5f170a3d-7d61-47e6-8a45-63e8b7448609" Name="LiquidicInterface" RefBaseClassPath="AutomationMLComponentBaseICL/LiquidicInterface" />
     </RoleClass>
     <RoleClass Name="PneumaticConnector" RefBaseClassPath="AutomationMLComponentStandardRCL/FluidicConnector">
       <Description>The role class “PneumaticConnector” shall be used in order to specify all the related information of a pneumatic connector of an automation component within its AutomationML Component representation.</Description>
-      <ExternalInterface Name="PneumaticInterface" ID="0f7d6ec8-7078-49bc-918b-33773609c977" RefBaseClassPath="AutomationMLComponentBaseICL/PneumaticInterface" />
+      <ExternalInterface ID="0f7d6ec8-7078-49bc-918b-33773609c977" Name="PneumaticInterface" RefBaseClassPath="AutomationMLComponentBaseICL/PneumaticInterface" />
     </RoleClass>
     <RoleClass Name="HydraulicConnector" RefBaseClassPath="AutomationMLComponentStandardRCL/FluidicConnector">
       <Description>The role class “HydraulicConnector” shall be used in order to specify all the related information of a hydraulic connector of an automation component within its AutomationML Component representation.</Description>
-      <ExternalInterface Name="HydraulicInterface" ID="56f6607e-fa42-4d34-89e9-82c196a4adba" RefBaseClassPath="AutomationMLComponentBaseICL/HydraulicInterface" />
+      <ExternalInterface ID="56f6607e-fa42-4d34-89e9-82c196a4adba" Name="HydraulicInterface" RefBaseClassPath="AutomationMLComponentBaseICL/HydraulicInterface" />
     </RoleClass>
     <RoleClass Name="SensorConnector" RefBaseClassPath="AutomationMLComponentBaseRCL/Connector">
       <Description>SensorConnector is the process interface to physically sense the properties of interest (i.e. a mechanical movement or object presence within a spatial detection area or mediums states like temperature or pressure). It is used for both mechanical construction and simulation environments.</Description>
-      <ExternalInterface Name="SensorInterface" ID="46fae3e7-fa14-4d27-a650-d135811affac" RefBaseClassPath="AutomationMLComponentBaseICL/SensorInterface" />
+      <ExternalInterface ID="46fae3e7-fa14-4d27-a650-d135811affac" Name="SensorInterface" RefBaseClassPath="AutomationMLComponentBaseICL/SensorInterface" />
     </RoleClass>
     <RoleClass Name="MaintenanceDescriptionGroup" RefBaseClassPath="AutomationMLComponentBaseRCL/MaintenanceDescription">
       <Description>???</Description>
-      <Attribute Name="TopicName" AttributeDataType="xs:string" />
+      <Attribute AttributeDataType="xs:string" Name="TopicName" />
     </RoleClass>
     <RoleClass Name="MaintenanceDescriptionItem" RefBaseClassPath="AutomationMLComponentBaseRCL/MaintenanceDescription">
       <Description>The role class “MaintenanceDescriptionItem” shall be used to define a single maintenance task.</Description>
-      <Attribute Name="Index" AttributeDataType="xs:PositiveInteger" />
-      <Attribute Name="SubTopic" AttributeDataType="xs:string" />
-      <Attribute Name="WorkDescription" AttributeDataType="xs:string" />
-      <Attribute Name="Cycle" AttributeDataType="xs:duration" />
-      <Attribute Name="PlannedTimePerWorker" AttributeDataType="xs:duration" />
-      <Attribute Name="ActivityKey" AttributeDataType="xs:string" />
-      <Attribute Name="ExecutionKey" AttributeDataType="xs:string" />
-      <Attribute Name="FunctionKey" AttributeDataType="xs:string" />
-      <Attribute Name="PersonnelKey" AttributeDataType="xs:string" />
-      <Attribute Name="LastExecution" AttributeDataType="xs:string" />
+      <Attribute AttributeDataType="xs:PositiveInteger" Name="Index" />
+      <Attribute AttributeDataType="xs:string" Name="SubTopic" />
+      <Attribute AttributeDataType="xs:string" Name="WorkDescription" />
+      <Attribute AttributeDataType="xs:duration" Name="Cycle" />
+      <Attribute AttributeDataType="xs:duration" Name="PlannedTimePerWorker" />
+      <Attribute AttributeDataType="xs:string" Name="ActivityKey" />
+      <Attribute AttributeDataType="xs:string" Name="ExecutionKey" />
+      <Attribute AttributeDataType="xs:string" Name="FunctionKey" />
+      <Attribute AttributeDataType="xs:string" Name="PersonnelKey" />
+      <Attribute AttributeDataType="xs:string" Name="LastExecution" />
     </RoleClass>
   </RoleClassLib>
   <RoleClassLib Name="AutomationMLBaseRoleClassLib">
@@ -666,19 +666,19 @@ referencing IEC 61131-10 documents</Description>
     <Version>2.2.2</Version>
     <RoleClass Name="AutomationMLBaseRole">
       <RoleClass Name="Group" RefBaseClassPath="AutomationMLBaseRole">
-        <Attribute Name="AssociatedFacet" AttributeDataType="xs:string" />
+        <Attribute AttributeDataType="xs:string" Name="AssociatedFacet" />
         <RoleClass Name="InterlockingSourceGroup" RefBaseClassPath="Group" />
         <RoleClass Name="InterlockingTargetGroup" RefBaseClassPath="Group" />
       </RoleClass>
       <RoleClass Name="Facet" RefBaseClassPath="AutomationMLBaseRole" />
       <RoleClass Name="Port" RefBaseClassPath="AutomationMLBaseRole">
-        <Attribute Name="Direction" AttributeDataType="xs:string" />
+        <Attribute AttributeDataType="xs:string" Name="Direction" />
         <Attribute Name="Cardinality">
-          <Attribute Name="MinOccur" AttributeDataType="xs:unsignedInt" />
-          <Attribute Name="MaxOccur" AttributeDataType="xs:unsignedInt" />
+          <Attribute AttributeDataType="xs:unsignedInt" Name="MinOccur" />
+          <Attribute AttributeDataType="xs:unsignedInt" Name="MaxOccur" />
         </Attribute>
-        <Attribute Name="Category" AttributeDataType="xs:string" />
-        <ExternalInterface Name="ConnectionPoint" ID="9942bd9c-c19d-44e4-a197-11b9edf264e7" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector" />
+        <Attribute AttributeDataType="xs:string" Name="Category" />
+        <ExternalInterface ID="9942bd9c-c19d-44e4-a197-11b9edf264e7" Name="ConnectionPoint" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector" />
       </RoleClass>
       <RoleClass Name="Resource" RefBaseClassPath="AutomationMLBaseRole" />
       <RoleClass Name="Product" RefBaseClassPath="AutomationMLBaseRole" />
@@ -697,169 +697,202 @@ referencing IEC 61131-10 documents</Description>
     <Description>AutomationMLLogicRoleClassLib specifies all logic related role classes.</Description>
     <Version>1.0.0</Version>
     <RoleClass Name="InterlockingTargetGroup" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group">
-      <ExternalInterface Name="ConnectionInterlockingSourceGroup" ID="70e6b544-9120-4fc9-b059-8d97c59f75f2" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/InterlockingConnector" />
-      <ExternalInterface Name="ReferenceInterlockingLogicModel" ID="b1a85f25-1ecf-4048-bdd3-84085d81b06a" RefBaseClassPath="AutomationMLLogicInterfaceClassLib/InterlockingLogicModelInterface" />
+      <ExternalInterface ID="70e6b544-9120-4fc9-b059-8d97c59f75f2" Name="ConnectionInterlockingSourceGroup" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/InterlockingConnector" />
+      <ExternalInterface ID="b1a85f25-1ecf-4048-bdd3-84085d81b06a" Name="ReferenceInterlockingLogicModel" RefBaseClassPath="AutomationMLLogicInterfaceClassLib/InterlockingLogicModelInterface" />
     </RoleClass>
     <RoleClass Name="InterlockingSourceGroup" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group">
-      <ExternalInterface Name="ConnectionInterlockingTargetGroup" ID="adf94976-a6d0-4960-b5af-55719a3e2130" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/InterlockingConnector" />
-      <ExternalInterface Name="ReferenceInterlockingLogicModel" ID="617c8706-8ee7-4e7b-8b94-900afe19f4f7" RefBaseClassPath="AutomationMLLogicInterfaceClassLib/InterlockingLogicModelInterface" />
-      <ExternalInterface Name="ReferenceInterlockingVariable" ID="3472f585-cf80-4b83-a355-db401cf18af9" RefBaseClassPath="AutomationMLLogicInterfaceClassLib/InterlockingVariableInterface">
-        <Attribute Name="Direction" AttributeDataType="xs:string" />
-        <Attribute Name="SafeConditionEquals" AttributeDataType="xs:boolean" />
+      <ExternalInterface ID="adf94976-a6d0-4960-b5af-55719a3e2130" Name="ConnectionInterlockingTargetGroup" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/InterlockingConnector" />
+      <ExternalInterface ID="617c8706-8ee7-4e7b-8b94-900afe19f4f7" Name="ReferenceInterlockingLogicModel" RefBaseClassPath="AutomationMLLogicInterfaceClassLib/InterlockingLogicModelInterface" />
+      <ExternalInterface ID="3472f585-cf80-4b83-a355-db401cf18af9" Name="ReferenceInterlockingVariable" RefBaseClassPath="AutomationMLLogicInterfaceClassLib/InterlockingVariableInterface">
+        <Attribute AttributeDataType="xs:string" Name="Direction" />
+        <Attribute AttributeDataType="xs:boolean" Name="SafeConditionEquals" />
       </ExternalInterface>
     </RoleClass>
     <RoleClass Name="LogicModelObject" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
-      <ExternalInterface Name="ReferenceSequence" ID="0370baf8-4ba1-420a-9cc4-4810b84c1fd7" RefBaseClassPath="AutomationMLLogicInterfaceClassLib/SequencingLogicModelInterface" />
-      <ExternalInterface Name="ReferenceBehaviour" ID="26f13ad6-479c-4121-a327-1114af968155" RefBaseClassPath="AutomationMLLogicInterfaceClassLib/BehaviourLogicModelInterface" />
+      <ExternalInterface ID="0370baf8-4ba1-420a-9cc4-4810b84c1fd7" Name="ReferenceSequence" RefBaseClassPath="AutomationMLLogicInterfaceClassLib/SequencingLogicModelInterface" />
+      <ExternalInterface ID="26f13ad6-479c-4121-a327-1114af968155" Name="ReferenceBehaviour" RefBaseClassPath="AutomationMLLogicInterfaceClassLib/BehaviourLogicModelInterface" />
     </RoleClass>
   </RoleClassLib>
   <RoleClassLib Name="SecurityRoleClassLib">
     <Version>0</Version>
     <RoleClass Name="AbstractCertificate">
-      <Attribute Name="Serial" AttributeDataType="xs:string" RefAttributeType="SecurityAttributesLib/Serial" />
-      <Attribute Name="Subject" AttributeDataType="xs:string" RefAttributeType="SecurityAttributesLib/Subject" />
-      <Attribute Name="LifetimeStart" AttributeDataType="xs:dateTime" RefAttributeType="SecurityAttributesLib/LifetimeStart" />
-      <Attribute Name="LifetimeEnd" AttributeDataType="xs:dateTime" RefAttributeType="SecurityAttributesLib/LifetimeEnd" />
-      <ExternalInterface Name="LinkedCertificateFile" ID="89943757-c55d-4faf-89fc-53a25910bf78" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
-        <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
-        <Attribute Name="MIMEType" AttributeDataType="xs:string">
+      <Attribute AttributeDataType="xs:string" Name="Serial" RefAttributeType="SecurityAttributesLib/Serial" />
+      <Attribute AttributeDataType="xs:string" Name="Subject" RefAttributeType="SecurityAttributesLib/Subject" />
+      <Attribute AttributeDataType="xs:dateTime" Name="LifetimeStart" RefAttributeType="SecurityAttributesLib/LifetimeStart" />
+      <Attribute AttributeDataType="xs:dateTime" Name="LifetimeEnd" RefAttributeType="SecurityAttributesLib/LifetimeEnd" />
+      <ExternalInterface ID="89943757-c55d-4faf-89fc-53a25910bf78" Name="LinkedCertificateFile" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
+        <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
+        <Attribute AttributeDataType="xs:string" Name="MIMEType">
           <Value>application/x-pem-file</Value>
         </Attribute>
       </ExternalInterface>
     </RoleClass>
     <RoleClass Name="RootCertificate" RefBaseClassPath="SecurityRoleClassLib/AbstractCertificate">
-      <ExternalInterface Name="IssuedCertificate" ID="8783c312-281e-4340-ba0d-d224efcd2ecd" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
+      <ExternalInterface ID="8783c312-281e-4340-ba0d-d224efcd2ecd" Name="IssuedCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
     </RoleClass>
     <RoleClass Name="ChainLink" RefBaseClassPath="SecurityRoleClassLib/AbstractCertificate">
-      <ExternalInterface Name="IssuerCertificate" ID="06ce9517-898e-45e0-853f-fa54b92cfa57" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
-      <ExternalInterface Name="IssuedCertificate" ID="43ca4e02-ef47-40be-9d37-bca91a8209bc" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
+      <ExternalInterface ID="06ce9517-898e-45e0-853f-fa54b92cfa57" Name="IssuerCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
+      <ExternalInterface ID="43ca4e02-ef47-40be-9d37-bca91a8209bc" Name="IssuedCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
     </RoleClass>
     <RoleClass Name="LeafCertificate" RefBaseClassPath="SecurityRoleClassLib/AbstractCertificate">
-      <ExternalInterface Name="IssuerCertificate" ID="e3a9c54b-f9df-46bb-b1ca-86a28fb39b9e" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
+      <ExternalInterface ID="e3a9c54b-f9df-46bb-b1ca-86a28fb39b9e" Name="IssuerCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
     </RoleClass>
   </RoleClassLib>
   <SystemUnitClassLib Name="SafeFMULib">
     <Version>0</Version>
-    <SystemUnitClass Name="SafeFMU" ID="7bb6fa30-d19f-4084-a1c9-fa67274e53a0">
-      <ExternalInterface Name="FMIReference" ID="777c2328-e19d-43ed-9f6f-40261c1dd5bd" RefBaseClassPath="AutomationMLFMIInterfaceClassLib/FMIReference">
-        <Attribute Name="refURI" AttributeDataType="xs:anyURI">
+    <SystemUnitClass ID="7bb6fa30-d19f-4084-a1c9-fa67274e53a0" Name="SafeFMU">
+      <Attribute Name="hashType" AttributeDataType="xs:string" />
+      <Attribute Name="hashValue" AttributeDataType="xs:string" />
+      <Attribute Name="signature" AttributeDataType="xs:string" />
+      <ExternalInterface ID="777c2328-e19d-43ed-9f6f-40261c1dd5bd" Name="FMIReference" RefBaseClassPath="AutomationMLFMIInterfaceClassLib/FMIReference">
+        <Attribute AttributeDataType="xs:anyURI" Name="refURI">
           <Value>/src/BouncingBall.fmu</Value>
         </Attribute>
-        <Attribute Name="MIMEType" AttributeDataType="xs:string">
+        <Attribute AttributeDataType="xs:string" Name="MIMEType">
           <Value>application/octet-stream</Value>
         </Attribute>
       </ExternalInterface>
-      <InternalElement Name="RootCertificate" ID="b217bb36-85a2-4de5-a0ae-0d85c33fdd6b">
-        <ExternalInterface Name="LinkedCertificateFile" ID="82ec4fae-f523-4920-b46f-6ae8c34df433" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
-          <Attribute Name="refURI" AttributeDataType="xs:anyURI">
+      <InternalElement ID="b217bb36-85a2-4de5-a0ae-0d85c33fdd6b" Name="RootCertificate">
+        <ExternalInterface ID="82ec4fae-f523-4920-b46f-6ae8c34df433" Name="LinkedCertificateFile" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
+          <Attribute AttributeDataType="xs:anyURI" Name="refURI">
             <Value>/ca/cert.pem</Value>
           </Attribute>
-          <Attribute Name="MIMEType" AttributeDataType="xs:string">
+          <Attribute AttributeDataType="xs:string" Name="MIMEType">
             <Value>application/x-pem-file</Value>
           </Attribute>
         </ExternalInterface>
-        <ExternalInterface Name="IssuedCertificate" ID="5e7f5db0-6c55-4e51-9f40-b54b393b1bbf" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
+        <ExternalInterface ID="5e7f5db0-6c55-4e51-9f40-b54b393b1bbf" Name="IssuedCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
         <RoleRequirements RefBaseRoleClassPath="SecurityRoleClassLib/RootCertificate">
-          <Attribute Name="Serial" AttributeDataType="xs:string" RefAttributeType="SecurityAttributesLib/Serial">
-            <Value>123</Value>
+          <Attribute AttributeDataType="xs:string" Name="Serial" RefAttributeType="SecurityAttributesLib/Serial">
+            <Value>234720833246752603755640111049616652598278791666</Value>
           </Attribute>
-          <Attribute Name="Subject" AttributeDataType="xs:string" RefAttributeType="SecurityAttributesLib/Subject" />
-          <Attribute Name="LifetimeStart" AttributeDataType="xs:dateTime" RefAttributeType="SecurityAttributesLib/LifetimeStart" />
-          <Attribute Name="LifetimeEnd" AttributeDataType="xs:dateTime" RefAttributeType="SecurityAttributesLib/LifetimeEnd" />
-          <ExternalInterface Name="LinkedCertificateFile" ID="05255599-3cb6-4b1f-8561-0505999f71ec" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
-            <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
-            <Attribute Name="MIMEType" AttributeDataType="xs:string">
+          <Attribute AttributeDataType="xs:string" Name="Subject" RefAttributeType="SecurityAttributesLib/Subject">
+            <Value>C=DE,ST=Baden-Wuerttemberg,CN=FMU-Tester</Value>
+          </Attribute>
+          <Attribute AttributeDataType="xs:dateTime" Name="LifetimeStart" RefAttributeType="SecurityAttributesLib/LifetimeStart">
+            <Value>2023-06-02 15:20:47</Value>
+          </Attribute>
+          <Attribute AttributeDataType="xs:dateTime" Name="LifetimeEnd" RefAttributeType="SecurityAttributesLib/LifetimeEnd">
+            <Value>2033-05-30 15:20:47</Value>
+          </Attribute>
+          <ExternalInterface ID="05255599-3cb6-4b1f-8561-0505999f71ec" Name="LinkedCertificateFile" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
+            <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
+            <Attribute AttributeDataType="xs:string" Name="MIMEType">
               <Value>application/x-pem-file</Value>
             </Attribute>
           </ExternalInterface>
-          <ExternalInterface Name="IssuedCertificate" ID="550db93b-1b54-4bf7-bebb-2ec07cd30ef5" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
+          <ExternalInterface ID="550db93b-1b54-4bf7-bebb-2ec07cd30ef5" Name="IssuedCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
         </RoleRequirements>
       </InternalElement>
-      <InternalElement Name="ChainLink1" ID="e595b69d-e42d-4a0a-b6e9-8a09a039961d">
-        <ExternalInterface Name="LinkedCertificateFile" ID="6dbabbc9-dc75-4fd5-a09d-8bbf69d4607c" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
-          <Attribute Name="refURI" AttributeDataType="xs:anyURI">
+      <InternalElement ID="e595b69d-e42d-4a0a-b6e9-8a09a039961d" Name="ChainLink1">
+        <ExternalInterface ID="6dbabbc9-dc75-4fd5-a09d-8bbf69d4607c" Name="LinkedCertificateFile" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
+          <Attribute AttributeDataType="xs:anyURI" Name="refURI">
             <Value>/im/cert.pem</Value>
           </Attribute>
-          <Attribute Name="MIMEType" AttributeDataType="xs:string">
+          <Attribute AttributeDataType="xs:string" Name="MIMEType">
             <Value>application/x-pem-file</Value>
           </Attribute>
         </ExternalInterface>
-        <ExternalInterface Name="IssuerCertificate" ID="a714fbb4-d487-477a-b025-9c1273036bc5" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
-        <ExternalInterface Name="IssuedCertificate" ID="4b644061-9695-42f2-be8a-7a237a4db01b" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
+        <ExternalInterface ID="a714fbb4-d487-477a-b025-9c1273036bc5" Name="IssuerCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
+        <ExternalInterface ID="4b644061-9695-42f2-be8a-7a237a4db01b" Name="IssuedCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
         <RoleRequirements RefBaseRoleClassPath="SecurityRoleClassLib/ChainLink">
-          <Attribute Name="Serial" AttributeDataType="xs:string" RefAttributeType="SecurityAttributesLib/Serial" />
-          <Attribute Name="Subject" AttributeDataType="xs:string" RefAttributeType="SecurityAttributesLib/Subject" />
-          <Attribute Name="LifetimeStart" AttributeDataType="xs:dateTime" RefAttributeType="SecurityAttributesLib/LifetimeStart" />
-          <Attribute Name="LifetimeEnd" AttributeDataType="xs:dateTime" RefAttributeType="SecurityAttributesLib/LifetimeEnd" />
-          <ExternalInterface Name="LinkedCertificateFile" ID="3706133b-9667-44c0-9cd2-acf934b0ba48" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
-            <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
-            <Attribute Name="MIMEType" AttributeDataType="xs:string">
+          <Attribute AttributeDataType="xs:string" Name="Serial" RefAttributeType="SecurityAttributesLib/Serial">
+            <Value>25165621844744360685700523896201131165393655051</Value>
+          </Attribute>
+          <Attribute AttributeDataType="xs:string" Name="Subject" RefAttributeType="SecurityAttributesLib/Subject">
+            <Value>C=DE,ST=Baden-Wuerttemberg,CN=FMU-Tester</Value>
+          </Attribute>
+          <Attribute AttributeDataType="xs:dateTime" Name="LifetimeStart" RefAttributeType="SecurityAttributesLib/LifetimeStart">
+            <Value>2023-06-02 15:28:25</Value>
+          </Attribute>
+          <Attribute AttributeDataType="xs:dateTime" Name="LifetimeEnd" RefAttributeType="SecurityAttributesLib/LifetimeEnd">
+            <Value>2033-05-30 15:28:25</Value>
+          </Attribute>
+          <ExternalInterface ID="3706133b-9667-44c0-9cd2-acf934b0ba48" Name="LinkedCertificateFile" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
+            <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
+            <Attribute AttributeDataType="xs:string" Name="MIMEType">
               <Value>application/x-pem-file</Value>
             </Attribute>
           </ExternalInterface>
-          <ExternalInterface Name="IssuerCertificate" ID="b42807cf-5ca2-468a-a3e9-c8573c5f7f95" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
-          <ExternalInterface Name="IssuedCertificate" ID="71d0f897-331c-4050-9067-63db4b2cf1b1" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
+          <ExternalInterface ID="b42807cf-5ca2-468a-a3e9-c8573c5f7f95" Name="IssuerCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
+          <ExternalInterface ID="71d0f897-331c-4050-9067-63db4b2cf1b1" Name="IssuedCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
         </RoleRequirements>
       </InternalElement>
-      <InternalElement Name="ChainLink2" ID="6c93178f-7204-412c-b522-5bc91a7a0aa1">
-        <ExternalInterface Name="LinkedCertificateFile" ID="d39184de-dc96-4766-92a0-b63c56eb9f33" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
-          <Attribute Name="refURI" AttributeDataType="xs:anyURI">
+      <InternalElement ID="6c93178f-7204-412c-b522-5bc91a7a0aa1" Name="ChainLink2">
+        <ExternalInterface ID="d39184de-dc96-4766-92a0-b63c56eb9f33" Name="LinkedCertificateFile" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
+          <Attribute AttributeDataType="xs:anyURI" Name="refURI">
             <Value>/vendor/cert.pem</Value>
           </Attribute>
-          <Attribute Name="MIMEType" AttributeDataType="xs:string">
+          <Attribute AttributeDataType="xs:string" Name="MIMEType">
             <Value>application/x-pem-file</Value>
           </Attribute>
         </ExternalInterface>
-        <ExternalInterface Name="IssuerCertificate" ID="9c4f2565-f59f-4582-8878-516bd7382f14" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
-        <ExternalInterface Name="IssuedCertificate" ID="7e0618de-b872-4932-93db-a35892cde401" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
+        <ExternalInterface ID="9c4f2565-f59f-4582-8878-516bd7382f14" Name="IssuerCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
+        <ExternalInterface ID="7e0618de-b872-4932-93db-a35892cde401" Name="IssuedCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
         <RoleRequirements RefBaseRoleClassPath="SecurityRoleClassLib/ChainLink">
-          <Attribute Name="Serial" AttributeDataType="xs:string" RefAttributeType="SecurityAttributesLib/Serial" />
-          <Attribute Name="Subject" AttributeDataType="xs:string" RefAttributeType="SecurityAttributesLib/Subject" />
-          <Attribute Name="LifetimeStart" AttributeDataType="xs:dateTime" RefAttributeType="SecurityAttributesLib/LifetimeStart" />
-          <Attribute Name="LifetimeEnd" AttributeDataType="xs:dateTime" RefAttributeType="SecurityAttributesLib/LifetimeEnd" />
-          <ExternalInterface Name="LinkedCertificateFile" ID="6afde234-805e-4ad5-9885-62f58d236189" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
-            <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
-            <Attribute Name="MIMEType" AttributeDataType="xs:string">
+          <Attribute AttributeDataType="xs:string" Name="Serial" RefAttributeType="SecurityAttributesLib/Serial">
+            <Value>32008708060488500666312296667554263279708901522</Value>
+          </Attribute>
+          <Attribute AttributeDataType="xs:string" Name="Subject" RefAttributeType="SecurityAttributesLib/Subject">
+            <Value>C=DE,ST=Baden-Wuerttemberg,O=EKS Intec,CN=Research</Value>
+          </Attribute>
+          <Attribute AttributeDataType="xs:dateTime" Name="LifetimeStart" RefAttributeType="SecurityAttributesLib/LifetimeStart">
+            <Value>2023-06-02 15:31:49</Value>
+          </Attribute>
+          <Attribute AttributeDataType="xs:dateTime" Name="LifetimeEnd" RefAttributeType="SecurityAttributesLib/LifetimeEnd">
+            <Value>2024-10-14 15:31:49</Value>
+          </Attribute>
+          <ExternalInterface ID="6afde234-805e-4ad5-9885-62f58d236189" Name="LinkedCertificateFile" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
+            <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
+            <Attribute AttributeDataType="xs:string" Name="MIMEType">
               <Value>application/x-pem-file</Value>
             </Attribute>
           </ExternalInterface>
-          <ExternalInterface Name="IssuerCertificate" ID="93ce72eb-ebfe-4e24-bc85-4f3bfe9779ec" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
-          <ExternalInterface Name="IssuedCertificate" ID="d8aa0e13-8aa5-427a-b73c-1c159deabab5" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
+          <ExternalInterface ID="93ce72eb-ebfe-4e24-bc85-4f3bfe9779ec" Name="IssuerCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
+          <ExternalInterface ID="d8aa0e13-8aa5-427a-b73c-1c159deabab5" Name="IssuedCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuedCertificate" />
         </RoleRequirements>
       </InternalElement>
-      <InternalElement Name="ChainLink3" ID="8e8cc7d2-10f3-43e5-ae49-987527b5de03">
-        <ExternalInterface Name="LinkedCertificateFile" ID="96b51427-851e-47db-8f59-f7a59ffbb97e" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
-          <Attribute Name="refURI" AttributeDataType="xs:anyURI">
+      <InternalElement ID="8e8cc7d2-10f3-43e5-ae49-987527b5de03" Name="ChainLink3">
+        <ExternalInterface ID="96b51427-851e-47db-8f59-f7a59ffbb97e" Name="LinkedCertificateFile" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
+          <Attribute AttributeDataType="xs:anyURI" Name="refURI">
             <Value>/fmu/cert.pem</Value>
           </Attribute>
-          <Attribute Name="MIMEType" AttributeDataType="xs:string">
+          <Attribute AttributeDataType="xs:string" Name="MIMEType">
             <Value>application/x-pem-file</Value>
           </Attribute>
         </ExternalInterface>
-        <ExternalInterface Name="IssuerCertificate" ID="0503bb6c-8abc-4796-8b34-a495dc7426f4" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
+        <ExternalInterface ID="0503bb6c-8abc-4796-8b34-a495dc7426f4" Name="IssuerCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
         <RoleRequirements RefBaseRoleClassPath="SecurityRoleClassLib/LeafCertificate">
-          <Attribute Name="Serial" AttributeDataType="xs:string" RefAttributeType="SecurityAttributesLib/Serial" />
-          <Attribute Name="Subject" AttributeDataType="xs:string" RefAttributeType="SecurityAttributesLib/Subject" />
-          <Attribute Name="LifetimeStart" AttributeDataType="xs:dateTime" RefAttributeType="SecurityAttributesLib/LifetimeStart" />
-          <Attribute Name="LifetimeEnd" AttributeDataType="xs:dateTime" RefAttributeType="SecurityAttributesLib/LifetimeEnd" />
-          <ExternalInterface Name="LinkedCertificateFile" ID="7f6e1c3a-e673-43b5-84fc-0c9fc9fefc18" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
-            <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
-            <Attribute Name="MIMEType" AttributeDataType="xs:string">
+          <Attribute AttributeDataType="xs:string" Name="Serial" RefAttributeType="SecurityAttributesLib/Serial">
+            <Value>464888737892948323003971097448743985537980915910</Value>
+          </Attribute>
+          <Attribute AttributeDataType="xs:string" Name="Subject" RefAttributeType="SecurityAttributesLib/Subject">
+            <Value>C=DE,ST=Baden-Wuerttemberg,O=EKS Intec,OU=Research,CN=BouncingBall</Value>
+          </Attribute>
+          <Attribute AttributeDataType="xs:dateTime" Name="LifetimeStart" RefAttributeType="SecurityAttributesLib/LifetimeStart">
+            <Value>2023-06-02 15:31:50</Value>
+          </Attribute>
+          <Attribute AttributeDataType="xs:dateTime" Name="LifetimeEnd" RefAttributeType="SecurityAttributesLib/LifetimeEnd">
+            <Value>2023-10-30 15:31:50</Value>
+          </Attribute>
+          <ExternalInterface ID="7f6e1c3a-e673-43b5-84fc-0c9fc9fefc18" Name="LinkedCertificateFile" RefBaseClassPath="SecurityInterfaceLib/LinkedCertificateFile">
+            <Attribute AttributeDataType="xs:anyURI" Name="refURI" />
+            <Attribute AttributeDataType="xs:string" Name="MIMEType">
               <Value>application/x-pem-file</Value>
             </Attribute>
           </ExternalInterface>
-          <ExternalInterface Name="IssuerCertificate" ID="e494546a-fe71-4a5b-90f0-ca743c67ed0c" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
+          <ExternalInterface ID="e494546a-fe71-4a5b-90f0-ca743c67ed0c" Name="IssuerCertificate" RefBaseClassPath="SecurityInterfaceLib/IssuerCertificate" />
         </RoleRequirements>
       </InternalElement>
-      <InternalLink RefPartnerSideA="5e7f5db0-6c55-4e51-9f40-b54b393b1bbf" RefPartnerSideB="a714fbb4-d487-477a-b025-9c1273036bc5" Name="Link" />
-      <InternalLink RefPartnerSideA="4b644061-9695-42f2-be8a-7a237a4db01b" RefPartnerSideB="9c4f2565-f59f-4582-8878-516bd7382f14" Name="InternalLink" />
-      <InternalLink RefPartnerSideA="7e0618de-b872-4932-93db-a35892cde401" RefPartnerSideB="0503bb6c-8abc-4796-8b34-a495dc7426f4" Name="InternalLink1" />
+      <InternalLink Name="Link" RefPartnerSideA="5e7f5db0-6c55-4e51-9f40-b54b393b1bbf" RefPartnerSideB="a714fbb4-d487-477a-b025-9c1273036bc5" />
+      <InternalLink Name="InternalLink" RefPartnerSideA="4b644061-9695-42f2-be8a-7a237a4db01b" RefPartnerSideB="9c4f2565-f59f-4582-8878-516bd7382f14" />
+      <InternalLink Name="InternalLink1" RefPartnerSideA="7e0618de-b872-4932-93db-a35892cde401" RefPartnerSideB="0503bb6c-8abc-4796-8b34-a495dc7426f4" />
     </SystemUnitClass>
   </SystemUnitClassLib>
   <AttributeTypeLib Name="AutomationMLBaseAttributeTypeLib">
     <Description>Standard Automation Markup Language Attribute Type Library</Description>
     <Version>2.10.0</Version>
-    <AttributeType Name="Direction" AttributeDataType="xs:string">
+    <AttributeType AttributeDataType="xs:string" Name="Direction">
       <Constraint Name="AllowedValues">
         <NominalScaledType>
           <RequiredValue>In</RequiredValue>
@@ -869,28 +902,28 @@ referencing IEC 61131-10 documents</Description>
       </Constraint>
     </AttributeType>
     <AttributeType Name="Cardinality">
-      <Attribute Name="MinOccur" AttributeDataType="xs:unsignedInt" />
-      <Attribute Name="MaxOccur" AttributeDataType="xs:unsignedInt" />
+      <Attribute AttributeDataType="xs:unsignedInt" Name="MinOccur" />
+      <Attribute AttributeDataType="xs:unsignedInt" Name="MaxOccur" />
     </AttributeType>
-    <AttributeType Name="Category" AttributeDataType="xs:string" />
-    <AttributeType Name="refURI" AttributeDataType="xs:anyURI" />
-    <AttributeType Name="AssociatedFacet" AttributeDataType="xs:string" />
+    <AttributeType AttributeDataType="xs:string" Name="Category" />
+    <AttributeType AttributeDataType="xs:anyURI" Name="refURI" />
+    <AttributeType AttributeDataType="xs:string" Name="AssociatedFacet" />
     <AttributeType Name="ListType" />
     <AttributeType Name="OrderedListType" />
-    <AttributeType Name="LocalizedAttribute" AttributeDataType="xs:string" />
+    <AttributeType AttributeDataType="xs:string" Name="LocalizedAttribute" />
     <AttributeType Name="AssociatedExternalValue">
       <Attribute Name="refCAEXAttribute" />
       <Attribute Name="refURI" RefAttributeType="AutomationMLBaseAttributeTypeLib/refURI" />
       <Attribute Name="Direction" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction" />
     </AttributeType>
-    <AttributeType Name="MIMEType" AttributeDataType="xs:string" />
-    <AttributeType Name="DocLang" AttributeDataType="xs:string" />
+    <AttributeType AttributeDataType="xs:string" Name="MIMEType" />
+    <AttributeType AttributeDataType="xs:string" Name="DocLang" />
   </AttributeTypeLib>
   <AttributeTypeLib Name="SecurityAttributesLib">
     <Version>0</Version>
-    <AttributeType Name="Serial" AttributeDataType="xs:string" />
-    <AttributeType Name="Subject" AttributeDataType="xs:string" />
-    <AttributeType Name="LifetimeStart" AttributeDataType="xs:dateTime" />
-    <AttributeType Name="LifetimeEnd" AttributeDataType="xs:dateTime" />
+    <AttributeType AttributeDataType="xs:string" Name="Serial" />
+    <AttributeType AttributeDataType="xs:string" Name="Subject" />
+    <AttributeType AttributeDataType="xs:dateTime" Name="LifetimeStart" />
+    <AttributeType AttributeDataType="xs:dateTime" Name="LifetimeEnd" />
   </AttributeTypeLib>
 </CAEXFile>

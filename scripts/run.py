@@ -620,8 +620,6 @@ def runCheck():
         log.info('Checking the signature of the certificate')
         checkSignature(certChain[0], realHashRaw, hashFunction, signature)
 
-
-
         log.warning('The trust was technically established. The implementation of custom policies is not yet done.')
 
         log.error('Not finished implementing')

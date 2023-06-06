@@ -31,6 +31,7 @@ bootstrapParser = subparsers.add_parser('bootstrap')
 
 checkerParser = subparsers.add_parser('check')
 checkerParser.add_argument('file', nargs=1)
+checkerParser.add_argument('-r', '--root-cert', nargs=1, help='The root CA to look for')
 checkerParser.add_argument('-v', '--verbose', action='count', default=0)
 
 args = parser.parse_args()
@@ -531,7 +532,55 @@ def runCheck():
                 log.debug('The signature itself is valid')
             except InvalidSignature:
                 log.error('The signature could not be verified. Was the AMLX file tampered?')
+                log.warning('The simulation should not be called for security reasons.')
                 exit(1)
+
+        def certificateDatesValid(cert):
+            now = datetime.datetime.now()
+            if cert.not_valid_before > now:
+                log.error('The lifetime of the certificate %s lies in the future', cert.subject.rfc4514_string())
+                return False
+            if cert.not_valid_after < now:
+                log.error('The lifetime of the certificate %s lies in the past', cert.subject.rfc4514_string())
+                return False
+            return True
+        
+        def checkCertificateChainCorrectlySigned(chain):
+            log.info('Checking if the chain in question is a real chain and is pairwise signed.')
+            for i in range(len(chain)-1):
+                try:
+                    chain[i].verify_directly_issued_by(chain[i+1])
+                except InvalidSignature:
+                    return False
+                
+            return True
+        
+        def checkCertificateDates(chain):
+            log.info('Checking the lifetime dates of the certificates')
+            for c in chain:
+                if not certificateDatesValid(c):
+                    return False
+            return True
+        
+        def checkTrustAnchor(chain):
+            if args.root_cert is None:
+                log.error('The current implementation does not use the OS trust anchors. This needs to be implemented later.')
+                exit(1)
+            
+            with open(args.root_cert[0], 'rb') as f:
+                rootCertData = f.read()
+            trustAnchor = x509.load_pem_x509_certificate(rootCertData)
+            for c in chain:
+                if c.issuer != trustAnchor.subject:
+                    continue
+
+                try:
+                    c.verify_directly_issued_by(trustAnchor)
+                    return True
+                except InvalidSignature:
+                    pass
+            
+            return False
 
         amlFileName, fmuFileName = checkAMLXFile()
         aml = zf.read(amlFileName)
@@ -551,14 +600,31 @@ def runCheck():
         else:
             log.info('The Hash matches')
 
-        log.info('Checking the signature of the certificate')
+        log.info('Extracting certificates from the AMLX file')
         amlChain = parseCertificateChain(suc)
         certChain = getRealCertificateChain(amlChain, zf)
+
+        log.info('Checking if the chain is based on a common trust anchor')
+        if not checkTrustAnchor(certChain):
+            log.error('The certificate chain was not trusted by the given root CA (parameter -r).')
+            exit(1)
+        
+        log.info('Checking certificate chain')
+        if not checkCertificateChainCorrectlySigned(certChain):
+            log.error('The certificate chain as declared in AMLX is not correctly built')
+            exit(1)
+        if not checkCertificateDates(certChain):
+            log.error('The certificate is expired.')
+            exit(1)
+        
+        log.info('Checking the signature of the certificate')
         checkSignature(certChain[0], realHashRaw, hashFunction, signature)
 
-        log.error('Not finished implementing')
 
-        log.info('Checking certificate chain')
+
+        log.warning('The trust was technically established. The implementation of custom policies is not yet done.')
+
+        log.error('Not finished implementing')
 
         log.info('The FMU was successfully checked and seems valid.')
 

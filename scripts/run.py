@@ -32,6 +32,7 @@ bootstrapParser = subparsers.add_parser('bootstrap')
 checkerParser = subparsers.add_parser('check')
 checkerParser.add_argument('file', nargs=1)
 checkerParser.add_argument('-r', '--root-cert', nargs=1, help='The root CA to look for')
+checkerParser.add_argument('-o', '--output', nargs=1, help='If given, store the extracted FMU in a file for use in legacy apps.')
 checkerParser.add_argument('-v', '--verbose', action='count', default=0)
 
 args = parser.parse_args()
@@ -622,11 +623,21 @@ def runCheck():
 
         log.warning('The trust was technically established. The implementation of custom policies is not yet done.')
 
-        log.error('Not finished implementing')
-
         log.info('The FMU was successfully checked and seems valid.')
 
-        print('Now the simulation would be run but in the prototype no implementation is made.')
+        if args.output is not None:
+            log.info('Writing the FMU to the file %s', args.output[0])
+            with open(args.output[0], 'wb') as f:
+                f.write(fmu)
+            with open(f'{args.output[0]}.{hashType}_SUM', 'w') as f:
+                dir, filename = os.path.split(args.output[0])
+                # log.debug('Filename "%s" was split into "%s" and "%s"', args.output[0], dir, filename)
+                f.write(f'{hashValue} {filename}')
+
+            log.info('File has been written.')
+        else:
+            log.warning('There is no simulation core implemented. This program is just a proof of concept.')
+            print('Now the simulation would be run but in the prototype no implementation is made.')
 
 callMap = {
     'bootstrap': runBootstrap,

@@ -99,7 +99,7 @@ class AMLContainerBuilder:
                 mgf=padding.MGF1(hashes.SHA256()),
                 salt_length=padding.PSS.MAX_LENGTH
             ),
-            utils.Prehashed(hash.hashFunction)
+            utils.Prehashed(hash.getFunction())
         )
         sigLine = ''.join(['{0:02x}'.format(x) for x in sigBytes])
         sig = '\n'.join(textwrap.wrap(sigLine, 32))

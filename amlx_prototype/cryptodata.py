@@ -92,14 +92,13 @@ class LocalCryptographicData:
 class Hash:
     def __init__(self) -> None:
         self.hashName = 'SHA256'
-        self.hashFunction = hashes.SHA256()
         self.hash = None
 
-    # @classmethod
-    # def load()
-
     def getHasher(self) -> hashes.Hash:
-        return hashes.Hash(self.hashFunction)
+        return hashes.Hash(self.getFunction())
+    
+    def getFunction(self) -> hashes.HashAlgorithm:
+        return getattr(hashes, self.hashName)()
     
     def setHash(self, hash: bytes):
         self.hash = hash

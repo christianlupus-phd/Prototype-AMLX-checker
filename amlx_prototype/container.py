@@ -85,6 +85,7 @@ class AMLContainerBuilder:
             hashPlugin.hashData(hasher, fmuData)
         
         hash.setHash(hasher.finalize())
+        self.log.debug('Obtained hash for FMU is %s', hash.getText())
         return hash
 
     def __updateHashInDT(self, hash: cd.Hash):
@@ -146,6 +147,11 @@ class AMLContainerBuilder:
                 fmuNominal = fp.read()
             
             fmu = callbackPlugin.getData(fmuNominal)
+            self.log.debug('Using an FMU file of length %d (nominal length is %d)', len(fmu), len(fmuNominal))
+            if fmu == fmuNominal:
+                self.log.debug('The FMU data was not modified')
+            else:
+                self.log.debug('The data has been changed compared to the nominal FMU in the boilerplate folder')
             
             zf.writestr(os.path.join('src', 'BouncingBall.fmu'), fmu)
 

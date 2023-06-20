@@ -9,17 +9,17 @@ class CryptographyHelper:
     def __init__(self) -> None:
         pass
 
-    def __getPrivateKeyAsPEM(self, key: rsa.RSAPrivateKey) -> bytes:
+    def getPrivateKeyAsPEM(self, key: rsa.RSAPrivateKey) -> bytes:
         return key.private_bytes(
             encoding=serialization.Encoding.PEM,
             format=serialization.PrivateFormat.PKCS8,
             encryption_algorithm=serialization.NoEncryption()
         )
 
-    def __getPublicKeyAsPEM(self, key: rsa.RSAPublicKey) -> bytes:
+    def getPublicKeyAsPEM(self, key: rsa.RSAPublicKey) -> bytes:
         return key.public_bytes(encoding=serialization.Encoding.PEM)
     
-    def __getCertificateAsPEM(self, cert: x509.Certificate) -> bytes:
+    def getCertificateAsPEM(self, cert: x509.Certificate) -> bytes:
         return cert.public_bytes(encoding=serialization.Encoding.PEM)
 
 """
@@ -36,7 +36,7 @@ class ChainLink:
         out = self.cert.public_bytes(serialization.Encoding.PEM).decode()
         if printPrivateKey:
             ch = CryptographyHelper()
-            keyOut = ch.__getPrivateKeyAsPEM(self.key).decode()
+            keyOut = ch.getPrivateKeyAsPEM(self.key).decode()
             out = f'{out}\n{keyOut}'
         return out
 
@@ -47,12 +47,12 @@ class ChainLink:
         
         ch = CryptographyHelper()
 
-        storeData('key.pem', ch.__getPrivateKeyAsPEM(self.key))
-        storeData('cert.pem', ch.__getCertificateAsPEM(self.cert))
+        storeData('key.pem', ch.getPrivateKeyAsPEM(self.key))
+        storeData('cert.pem', ch.getCertificateAsPEM(self.cert))
         pass
         
     @classmethod
-    def load(baseName: str) -> "ChainLink":
+    def load(cls, baseName: str) -> "ChainLink":
         def loadData(file):
             with open(os.path.join(baseName, file), 'r') as f:
                 return f.read().encode()

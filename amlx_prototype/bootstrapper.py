@@ -21,7 +21,10 @@ class Bootstrapper:
         self.args = args
     
     def run(self):
+        self.log.info('Prepare the process by ensuring the PKI is present.')
         lcd = self.getLocalKeyInfrastructure()
+
+        self.log.info('Create different containers with and without changed FMUs/hashes to test script')
         self.__createFmuVariants(lcd)
     
     def __generatePrivateKey(self):
@@ -88,7 +91,7 @@ class Bootstrapper:
         cert = self.__signCSR(csr, key, csr, 3650)
 
         # Pack the certificate and private key into some common structure for handling 
-        return self.ChainLink(key, cert)
+        return cd.ChainLink(key, cert)
     
     """
         Generate a certificate in the chain of trust issued from another chain link
@@ -110,11 +113,11 @@ class Bootstrapper:
         This takes the --output-base and --pki CLI parameters into account and augments them by the name of the certificate.
     """
     def __getCertPathName(self, certName: str) -> str:
-        if self.args.pki is not None:
-            # The PKI path was explicitly set
+        if self.args.pki is None:
+            # Fall back to the base path
             return os.path.join(self.args.base[0], 'pki', certName)
         else:
-            # Fall back to the base path
+            # The PKI path was explicitly set
             return os.path.join(self.args.pki[0], certName)
 
     """
@@ -228,7 +231,7 @@ class Bootstrapper:
         class FmuCallbackPluginBrokenFile (amlx_prototype.container.DefaultFmuSpoofPlugin):
             def __init__(self) -> None:
                 super().__init__()
-                self.randomData = random.randbytes(10)
+                self.randomData = random.randbytes(16)
             
             def getData(self, data: bytes) -> bytes:
                 return super().getData(data) + self.randomData
@@ -244,10 +247,10 @@ class Bootstrapper:
         if self.args.test_fmus is None:
             containerPath = os.path.join(self.args.base[0], 'fmus')
         else:
-            containerPath = 
+            containerPath = self.args.test_fmus[0]
         os.makedirs(containerPath, exist_ok=True)
 
-        amlx = amlx_prototype.container.AMLContainerBuilder(self.args.boilerplate_path)
+        amlx = amlx_prototype.container.AMLContainerBuilder(self.args.boilerplate_path[0])
         amlx.init()
 
         cases = (
@@ -257,6 +260,9 @@ class Bootstrapper:
         )
 
         for filename, plugin in cases:
+            self.log.debug('Prepare container file %s in memory', filename)
             amlx.updateDTData(crypto, plugin)
+
             containerFullPath = os.path.join(containerPath, filename)
+            self.log.debug('Storing complete container to "%s"', containerFullPath)
             amlx.createContainer(containerFullPath, plugin)

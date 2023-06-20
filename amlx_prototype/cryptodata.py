@@ -32,6 +32,10 @@ class ChainLink:
         self.key = key
         self.cert = cert
     
+    """
+        Get a string representation for debugging purposes.
+        The output of the private key can be controlled via parameter
+    """
     def getStr(self, printPrivateKey: bool = False) -> str:
         out = self.cert.public_bytes(serialization.Encoding.PEM).decode()
         if printPrivateKey:
@@ -40,6 +44,11 @@ class ChainLink:
             out = f'{out}\n{keyOut}'
         return out
 
+    """
+        Store the link as PEM files to the HDD
+        The basename defines a folder to be used for storing the crypto data.
+        The certificate is saves in a file cert.pem in that folder and the key is named key.pem.
+    """
     def store(self, baseName: str):
         def storeData(file, d: bytes):
             with open(os.path.join(baseName, file), 'w') as f:
@@ -51,6 +60,9 @@ class ChainLink:
         storeData('cert.pem', ch.getCertificateAsPEM(self.cert))
         pass
         
+    """
+        Loads a chain link from the disk as stored by the store() method
+    """
     @classmethod
     def load(cls, baseName: str) -> "ChainLink":
         def loadData(file):
@@ -89,19 +101,38 @@ class LocalCryptographicData:
         self.chain = chain
         self.leafCert = leafCert
 
+"""
+    This class represents a hash and its metadata like the name of the hashing function and an implementation of it.
+    It is mainly used to pass around combined information about hashes.
+"""
 class Hash:
     def __init__(self) -> None:
+        # Use a default value for the hashing function as SHA256. Can be changed later as well.
         self.hashName = 'SHA256'
+        # The hash is not yet calculated, so initialize the field anyway.
         self.hash = None
 
+    """
+        Get a Hash object to calculate hashes.
+    """
     def getHasher(self) -> hashes.Hash:
         return hashes.Hash(self.getFunction())
     
+    """
+        Get a function that calculates the hash function.
+        This is only needed for internal access to the function for the cryptography functions
+    """
     def getFunction(self) -> hashes.HashAlgorithm:
         return getattr(hashes, self.hashName)()
     
+    """
+        Store the actual hash for a concrete data sample to the object
+    """
     def setHash(self, hash: bytes):
         self.hash = hash
 
+    """
+        Get a hexadecimal representation of the hash as used by common tools on the console
+    """
     def getText(self) -> str:
         return ''.join(['{0:02x}'.format(x) for x in self.hash])

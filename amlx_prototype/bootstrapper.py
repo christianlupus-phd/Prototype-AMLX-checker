@@ -226,33 +226,61 @@ class Bootstrapper:
         chain = [x.cert for x in pki.chain]
         return cd.LocalCryptographicData(pki.rootCert.cert, chain, pki.leafCert)
     
+    """
+        Prepare the test AMLX containers with different levels of issues included
+    """
     def __createFmuVariants(self, crypto: cd.LocalCryptographicData):
         
+        """
+            This derived class does no longer copy the plain data of the FMU during saving but instead adds a few bytes at the ending.
+            The hash is calculated as in the original class that uses the nominal FMU data.
+
+            As a result, the AMLX will contain the original hash (and signature) but a changed FMU.
+            This simulates a container that was broken during transport/packing.
+        """
         class FmuCallbackPluginBrokenFile (amlx_prototype.container.DefaultFmuSpoofPlugin):
             def __init__(self) -> None:
                 super().__init__()
+
+                # Get some random data to be added to the FMU to simulate breaking it
                 self.randomData = random.randbytes(16)
             
             def getData(self, data: bytes) -> bytes:
                 return super().getData(data) + self.randomData
         
+        """
+            This class is augmenting the base class by altering the calculation of the hash.
+            To calculate the hash, the actual data in the container is used.
+
+            The AMLX container will contain a matching pair of FMU and hash.
+            The signature is still calculated with the original FMU thus checking the FMU with cryptographical verification should still fail.
+        """
         class FmuCallbackPluginSpoofedHash (FmuCallbackPluginBrokenFile):
             def __init__(self) -> None:
                 super().__init__()
             
             def hashData(self, hash: cd.Hash, nominalData: bytes):
+                # Instead of using the nominal data in the hashing, take the modified data for hashing
                 data = self.getData(nominalData)
                 return super().hashData(hash, data)
 
+        # Syntactic sugar to use the correct path to put the FMUs inside and to the PKI
         if self.args.test_fmus is None:
             containerPath = os.path.join(self.args.base[0], 'fmus')
         else:
             containerPath = self.args.test_fmus[0]
         os.makedirs(containerPath, exist_ok=True)
+        if self.args.pki is not None:
+            pkiPath = self.args.pki[0]
+        else:
+            pkiPath = os.path.join(self.args.base[0], 'pki')
 
+        # Create an AMLX builder and read the boilerplate AML file
         amlx = amlx_prototype.container.AMLContainerBuilder(self.args.boilerplate_path[0])
         amlx.init()
 
+        # Define all cases to create: First entry is the filename in the output dir and second one is the corresponding plugin object
+        # (subclass of DefaultFmuSpoofPlugin) to use
         cases = (
             ('nominal_fmu.amlx', amlx_prototype.container.DefaultFmuSpoofPlugin()),
             ('broken_fmu.amlx', FmuCallbackPluginBrokenFile()),
@@ -261,8 +289,10 @@ class Bootstrapper:
 
         for filename, plugin in cases:
             self.log.debug('Prepare container file %s in memory', filename)
+            # Update the internal AML structures in memory
             amlx.updateDTData(crypto, plugin)
 
+            # Store the data in a AMLX container
             containerFullPath = os.path.join(containerPath, filename)
             self.log.debug('Storing complete container to "%s"', containerFullPath)
-            amlx.createContainer(containerFullPath, plugin)
+            amlx.createContainer(containerFullPath, pkiPath, plugin)

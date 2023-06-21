@@ -43,11 +43,16 @@ class AMLContainerBuilder:
         Prepare a new container builder
 
         The parameter boilerplatePath allows to read the boilerplate data from arbitrary folders.
+        If the parameter fmuFilename is given, the FMU is read from there instead of the boilerplate.
     """
-    def __init__(self, boilerplatePath: str = 'boilerplate') -> None:
+    def __init__(self, boilerplatePath: str = 'boilerplate', fmuFilename: str = None) -> None:
         self.__boilerplatePath = boilerplatePath
 
-        self.__fmuFilename = os.path.join(boilerplatePath, 'dynamic', 'src', 'BouncingBall.fmu')
+        if fmuFilename is None:
+            self.__fmuFilename = os.path.join(boilerplatePath, 'dynamic', 'src', 'BouncingBall.fmu')
+        else:
+            self.__fmuFilename = fmuFilename
+        
         self.__amlFileName = os.path.join(boilerplatePath, 'dynamic', 'Test.aml')
 
         self.__soup = None

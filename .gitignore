@@ -1,4 +1,3 @@
 /venv/
-/data/
-/fmus/
 __pycache__/
+/bootstrap/

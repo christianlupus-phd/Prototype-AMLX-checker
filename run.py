@@ -17,7 +17,7 @@ logger.debug("Found CLI parameters: %s", amlx_prototype.cli.args)
 
 workerMap = {
     'bootstrap': amlx_prototype.bootstrapper.Bootstrapper,
-    'sign': None,
+    'sign': amlx_prototype.signer.Signer,
     'check': amlx_prototype.checker.Checker,
 }
 

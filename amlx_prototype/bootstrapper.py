@@ -6,14 +6,14 @@ import random
 
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography import x509
-# from cryptography.x509.oid import NameOID
 from cryptography.hazmat.primitives import hashes
-# from cryptography.hazmat.primitives.asymmetric import padding, utils
-# from cryptography.exceptions import InvalidSignature
 
 import amlx_prototype
 import amlx_prototype.cryptodata as cd
 
+"""
+    This class helps to create a new PKI from scratch and some test containers
+"""
 class Bootstrapper:
     def __init__(self, args):
         self.log = logging.getLogger("main.bootstrapper")

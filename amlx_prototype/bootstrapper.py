@@ -84,7 +84,7 @@ class Bootstrapper:
         csr = self.__createCSR({
             'C': 'DE',
             'ST': 'Baden-Wuerttemberg',
-            'CN': 'FMU-Tester'
+            'CN': 'FMU-Tester Root'
         }, key)
 
         # Self-sign the CSR for 10 years
@@ -193,7 +193,7 @@ class Bootstrapper:
         im = self.__ensureCertLinkExists('im', {
             'C': 'DE',
             'ST': 'Baden-Wuerttemberg',
-            'CN': 'FMU-Tester'
+            'CN': 'FMU-Tester Immediate CA'
         }, ca, 3650)
         # print(strCertificateChainLink(im))
 
@@ -296,3 +296,8 @@ class Bootstrapper:
             containerFullPath = os.path.join(containerPath, filename)
             self.log.debug('Storing complete container to "%s"', containerFullPath)
             amlx.createContainer(containerFullPath, pkiPath, plugin)
+
+            if self.args.output_inner_aml:
+                amlFilename = f'{containerFullPath}.aml'
+                self.log.debug('Writing inner AML file to %s for debugging purposes.', amlFilename)
+                amlx.writePureAMLFile(amlFilename)
